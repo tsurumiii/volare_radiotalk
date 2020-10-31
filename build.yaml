@@ -1,0 +1,15 @@
+targets:
+  $default:
+    builders:
+      freezed:
+        generate_for:
+          include:
+            - lib/presentation/pages/*.dart
+            - lib/presentation/pages/**/*.dart
+            - lib/presentation/common/**/*.dart
+            - lib/model/notifier/**/*.dart
+      flamingo_generator|field_value_generator:
+        generate_for:
+          include:
+            - lib/model/firestore_model/*.dart
+            - lib/model/firestore_model/**/*.dart

@@ -1,0 +1,1140 @@
+{
+  "@@locale": "messages",
+  "@@last_modified": "2020-10-25T16:20:27.686310",
+  "hello": "こんにちは",
+  "@hello": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "close": "閉じる",
+  "@close": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "yes": "はい",
+  "@yes": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "no": "いいえ",
+  "@no": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "account": "アカウント",
+  "@account": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "emailAddress": "Email",
+  "@emailAddress": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "password": "Password",
+  "@password": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "login": "ログイン",
+  "@login": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "logout": "ログアウト",
+  "@logout": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "google": "Google",
+  "@google": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "facebook": "Facebook",
+  "@facebook": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "apple": "Apple",
+  "@apple": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "loginWith": "Sign in with {value}",
+  "@loginWith": {
+    "type": "text",
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "next": "次へ",
+  "@next": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "save": "保存",
+  "@save": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "saved": "保存しました。",
+  "@saved": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "name": "名前",
+  "@name": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "profile": "プロフィール",
+  "@profile": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "help": "ヘルプ",
+  "@help": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "selfIntroduction": "自己紹介",
+  "@selfIntroduction": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "search": "検索",
+  "@search": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "privacyPolicy": "プライバシーポリシー",
+  "@privacyPolicy": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "termOfRules": "利用規約",
+  "@termOfRules": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "setting": "設定",
+  "@setting": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "settingDeleteAccount": "退会",
+  "@settingDeleteAccount": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "executeDeleteAccount": "退会する",
+  "@executeDeleteAccount": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "appVersion": "アプリバージョン",
+  "@appVersion": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "loginStatus": "ログイン状態",
+  "@loginStatus": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "loginStatusNo": "ログインしてください",
+  "@loginStatusNo": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "logoutConfirm": "ログアウトしますか？",
+  "@logoutConfirm": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "reviewKana": "レビュー",
+  "@reviewKana": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "appReviewTitle": "アプリのレビュー",
+  "@appReviewTitle": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "appReviewDescription": "アプリのレビューをお願いします。",
+  "@appReviewDescription": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "registerWithPhoneNumber": "電話番号で登録",
+  "@registerWithPhoneNumber": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "createAccountWithPhone": "電話番号でアカウントを作成できます。",
+  "@createAccountWithPhone": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "country": "国　",
+  "@country": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "plus81": "+81",
+  "@plus81": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "number": "数字",
+  "@number": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "phoneNumber": "電話番号",
+  "@phoneNumber": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "confirm": "確認",
+  "@confirm": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "confirmPhoneNumber": "電話番号の確認",
+  "@confirmPhoneNumber": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "enterSmsCode": "SMSで届いた番号を入力してください。",
+  "@enterSmsCode": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "verification": "認証する",
+  "@verification": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "resendSms": "SMSを再送する",
+  "@resendSms": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "editProfile": "プロフィール編集",
+  "@editProfile": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "review": "評価",
+  "@review": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "totalWork": "合計業務時間",
+  "@totalWork": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "penalty": "ペナルティ",
+  "@penalty": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "registerAndChangeAccountInfo": "口座情報登録・変更",
+  "@registerAndChangeAccountInfo": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "pastWorkList": "過去業務一覧",
+  "@pastWorkList": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "registerVerification": "本人確認書類登録",
+  "@registerVerification": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "registeredIdentification": "登録済み本人確認書類",
+  "@registeredIdentification": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "selectIdentification": "本人確認書類を選択してください",
+  "@selectIdentification": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "registerPossessionLicense": "所有資格登録",
+  "@registerPossessionLicense": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "registerResume": "履歴書登録",
+  "@registerResume": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "myPage": "マイページ",
+  "@myPage": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "confirmed": "確認済",
+  "@confirmed": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "qrScanner": "QRスキャン",
+  "@qrScanner": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "favorite": "お気に入り",
+  "@favorite": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "lookFor": "探す",
+  "@lookFor": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "add": "追加",
+  "@add": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "reRegister": "再登録",
+  "@reRegister": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "register": "登録",
+  "@register": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "confirmLicense": "所有資格登録確認",
+  "@confirmLicense": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "shootFrontOfLicense": "資格免許証のオモテ面全体を撮影してください。",
+  "@shootFrontOfLicense": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "shootFrontOfIdentification": "本人確認書類のオモテ面全体を撮影してください。",
+  "@shootFrontOfIdentification": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "mustShootAll": "※必ず免許証の原本全体を撮影してください",
+  "@mustShootAll": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "mustShootIdentification": "※必ず本人確認書類の原本を撮影してください",
+  "@mustShootIdentification": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "registerLicense": "資格登録",
+  "@registerLicense": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "pleaseSelectLicense": "登録資格の種類を選択してください。\n該当する資格がない場合は、その他に資格名を記入してください。",
+  "@pleaseSelectLicense": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "etc": "その他",
+  "@etc": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "shootLicense": "免許証を撮影する",
+  "@shootLicense": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "shoot": "撮影する",
+  "@shoot": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "selectLibrary": "ライブラリから選択",
+  "@selectLibrary": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "firstName": "性",
+  "@firstName": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "lastName": "名",
+  "@lastName": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "sex": "性別",
+  "@sex": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "birth": "生年月日",
+  "@birth": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "email": "メールアドレス",
+  "@email": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "prefecture": "都道府県",
+  "@prefecture": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "locationAddress": "住所",
+  "@locationAddress": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "clinicalExperienceYears": "臨床経験年数",
+  "@clinicalExperienceYears": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "lastWorkplace": "最終職歴",
+  "@lastWorkplace": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "currentWorkplace": "現在の勤務先",
+  "@currentWorkplace": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "tel": "電話番号",
+  "@tel": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "required": "必須",
+  "@required": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "editProfileImage": "プロフィール写真を変更",
+  "@editProfileImage": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "smsCodeTitle": "SMSの再送",
+  "@smsCodeTitle": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "smsCodeDescription": "SMSコードを再送しました。",
+  "@smsCodeDescription": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "error": "エラー",
+  "@error": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "errorNothingEmail": "メールアドレスを入力してください。",
+  "@errorNothingEmail": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "errorPhoneNumber": "電話番号を入力してください。",
+  "@errorPhoneNumber": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "errorUnknown": "不明なエラーです。",
+  "@errorUnknown": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "errorEmptyForm": "必須事項を入力してください。",
+  "@errorEmptyForm": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "updateProfile": "アカウント情報を更新しました。",
+  "@updateProfile": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "validateEmail": "不正なメールアドレスです",
+  "@validateEmail": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "mustLicenseName": "免許の名称は必須です。",
+  "@mustLicenseName": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "mustIdentificationName": "本人確認書類の名称は必須です。",
+  "@mustIdentificationName": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "failRegisterLicense": "所持免許の登録に失敗しました。登録できるファイルサイズは{value}Mバイトまでです。",
+  "@failRegisterLicense": {
+    "type": "text",
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "checkProperties": "持ち物の確認",
+  "@checkProperties": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "checkRequirements": "応募条件",
+  "@checkRequirements": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "neededLicense": "必要資格",
+  "@neededLicense": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "checkDocuments": "業務に関する書類確認",
+  "@checkDocuments": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "failRegisterIdentification": "本人確認書類の登録に失敗しました。登録できるファイルサイズは{value}Mバイトまでです。",
+  "@failRegisterIdentification": {
+    "type": "text",
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "failRegisterResume": "履歴書登録に失敗しました。登録できるファイルサイズは{value}Mバイトまでです。",
+  "@failRegisterResume": {
+    "type": "text",
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "pleaseLogin": "ログインしてください。",
+  "@pleaseLogin": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "errorUploadMaxCount": "これ以上ファイルをアップロードすることはできません。上限は{value}ファイルまでです。 ",
+  "@errorUploadMaxCount": {
+    "type": "text",
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "pleaseRegisterLicense": "所有資格を選択してください。",
+  "@pleaseRegisterLicense": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "pleaseRegisterIdentification": "本人確認書類を選択してください。",
+  "@pleaseRegisterIdentification": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "pleaseRegisterIdentificationByImory": "イモリーでは本人確認書類の登録が必須となっています。所定の本人確認書類を登録してください。",
+  "@pleaseRegisterIdentificationByImory": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "canUseIdentification": "本人確認書類で利用できる身分証は以下の通りです。また、身分証明書がイモリーの他のユーザーに公開されることは決してありません。",
+  "@canUseIdentification": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "mustShootOriginal": "※撮影の際は、必ず本人確認書類は原本を撮影してください。",
+  "@mustShootOriginal": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "enableIdentification": "※ご利用可能な本人確認書類",
+  "@enableIdentification": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "driverLicense": "運転免許証",
+  "@driverLicense": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "passport": "パスポート",
+  "@passport": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "myNumberCard": "マイナンバーカード",
+  "@myNumberCard": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "residentBasicCard": "住民基本台帳カード",
+  "@residentBasicCard": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "residentCard": "住民票",
+  "@residentCard": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "updatePhoneNumber": "電話番号変更",
+  "@updatePhoneNumber": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "offerDetail": "お仕事詳細",
+  "@offerDetail": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "recruitmentNumbers": "募集人数",
+  "@recruitmentNumbers": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "description": "業務詳細",
+  "@description": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "jobRequirement": "こだわり条件",
+  "@jobRequirement": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "documents": "業務に関する書類",
+  "@documents": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "submittedDocument": "提出が必要な書類",
+  "@submittedDocument": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "identification": "本人確認書類",
+  "@identification": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "confirmWithOtherApp": "ほかのアプリで確認する",
+  "@confirmWithOtherApp": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "apply": "申し込む",
+  "@apply": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "cashPayment": "現金支給",
+  "@cashPayment": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "transferPayment": "振込支給",
+  "@transferPayment": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "paymentMethod": "給与支払い方法",
+  "@paymentMethod": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "cancelPolicy": "キャンセルポリシー",
+  "@cancelPolicy": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "descriptionOfCancelPolicy": "業務確定後に業務をキャンセルした場合、損害賠償が発生する場合があります。",
+  "@descriptionOfCancelPolicy": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "descriptionOfCancelPolicy2": "このボタンを押すと、キャンセルポリシーに同意します。",
+  "@descriptionOfCancelPolicy2": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "confirmationOfOffer": "申し込み内容の確認",
+  "@confirmationOfOffer": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "descriptionOfOfferConfirm": "申し込み内容の最終確認をしてください",
+  "@descriptionOfOfferConfirm": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "determineOffer": "申し込みを確定",
+  "@determineOffer": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "agreeToRuleAfterDetermineOffer": "申し込みを確定することで利用規約に同意します。",
+  "@agreeToRuleAfterDetermineOffer": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "employee": "被用者",
+  "@employee": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "employer": "雇用者",
+  "@employer": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "employmentStatus": "雇用形態",
+  "@employmentStatus": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "contractDate": "契約日",
+  "@contractDate": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "descriptionOfContractDate": "業務当日に現地でQRコードを読みことで契約締結となります",
+  "@descriptionOfContractDate": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "workDateAndTime": "勤務日時",
+  "@workDateAndTime": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "workPlace": "業務地",
+  "@workPlace": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "reward": "業務報酬",
+  "@reward": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "transportationExpenses": "交通費",
+  "@transportationExpenses": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "workContent": "業務内容",
+  "@workContent": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "late": "遅刻",
+  "@late": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "noteOfOfferConfirm": "尚、業務当日に業務先でQRコードを読み込むことで契約締結になります。当日に業務先で解雇事由に該当することが発覚した場合などを含め、契約締結までは業務予定先からキャンセル通知がくる可能性がございます。",
+  "@noteOfOfferConfirm": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "workingConditionsNoticePaper": "労働条件通知書.pdf",
+  "@workingConditionsNoticePaper": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "laborContractPaper": "労働誓約書.pdf",
+  "@laborContractPaper": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "doctorLicense": "医師免許",
+  "@doctorLicense": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "nurseLicense": "看護師免許",
+  "@nurseLicense": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "writingInstrument": "筆記用具",
+  "@writingInstrument": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "shoes": "シューズ",
+  "@shoes": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "requirementItem1": "同意書の内容を確認",
+  "@requirementItem1": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "requirementItem2": "臨床経験１年以上の方限定",
+  "@requirementItem2": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "requirementItem3": "現在他院で勤務されていない方限定",
+  "@requirementItem3": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "frontSide": "表面",
+  "@frontSide": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "backSide": "裏面",
+  "@backSide": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "shootBackSide": "裏面も撮影しますか？",
+  "@shootBackSide": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "offerCaution": "業務開始時刻にチェックインできなかった場合、ペナルティやキャンセルとなる可能性があります。余裕を持って現地に到着するようにしましょう。",
+  "@offerCaution": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "confirmResume": "履歴書登録確認",
+  "@confirmResume": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "shootFrontOfResume": "履歴書のオモテ面全体を撮影してください。",
+  "@shootFrontOfResume": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "mustShootResume": "※必ず履歴書の原本全体を撮影してください",
+  "@mustShootResume": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "shootResume": "履歴書を撮影する",
+  "@shootResume": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "registerStripeAccount": "Stripeアカウントの登録",
+  "@registerStripeAccount": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "successRegisterStripeAccountMessage": "アカウントの登録が完了しました。",
+  "@successRegisterStripeAccountMessage": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "errorRegisterStripeAccountTitle": "Stripeアカウント登録エラー",
+  "@errorRegisterStripeAccountTitle": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "remarks": "注意事項",
+  "@remarks": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "currency": "¥ {value}",
+  "@currency": {
+    "type": "text",
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "station": "最寄り駅",
+  "@station": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "occupation": "職種",
+  "@occupation": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "medicalDepartment": "診療科目",
+  "@medicalDepartment": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "payment": "支払い方法",
+  "@payment": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "qualification": "必要資格",
+  "@qualification": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "employment": "雇用形態",
+  "@employment": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "available": "あり",
+  "@available": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "notAvailable": "なし",
+  "@notAvailable": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "belonging": "持ち物",
+  "@belonging": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "applicationCondition": "応募条件",
+  "@applicationCondition": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "neededQualification": "必要資格",
+  "@neededQualification": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "passedDeadline": "応募締め切り",
+  "@passedDeadline": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "resume": "履歴書",
+  "@resume": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "qualifications": "所有資格",
+  "@qualifications": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "remainingTime": "あと {value}日で終了",
+  "@remainingTime": {
+    "type": "text",
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "stillRegister": "まだ登録されていません。マイページから登録をお願いします。",
+  "@stillRegister": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "decide": "確定",
+  "@decide": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "photoAndLibrary": "撮影・ライブラリ",
+  "@photoAndLibrary": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "registerDocuments": "書類登録",
+  "@registerDocuments": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "pleaseSelectDocuments": "提出が必要な書類を全て選択してください。",
+  "@pleaseSelectDocuments": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "pleaseSelectQualification": "資格を選択してください。",
+  "@pleaseSelectQualification": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "pleaseSelectImage": "画像を選択してください。",
+  "@pleaseSelectImage": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "selectAnything": "{value}を選択",
+  "@selectAnything": {
+    "type": "text",
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "selectAlreadyRegisteredIdentification": "登録済み本人確認書類。",
+  "@selectAlreadyRegisteredIdentification": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "selectAlreadyRegisteredResume": "登録済み履歴書から選択。",
+  "@selectAlreadyRegisteredResume": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "selectAlreadyRegisteredQualifications": "登録済み所有資格から選択。",
+  "@selectAlreadyRegisteredQualifications": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "selectPhotoAndLibrary": "撮影又はライブラリから選択。",
+  "@selectPhotoAndLibrary": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "noResume": "まだ履歴書が登録されていません。",
+  "@noResume": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "noIdentification": "まだ本人確認書類が登録されていません。",
+  "@noIdentification": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "newRegistration": "新規登録",
+  "@newRegistration": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "registerLater": "あとで登録する",
+  "@registerLater": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "applyJobOffer": "お仕事の申し込み",
+  "@applyJobOffer": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "successApplyJobOffer": "お仕事の申し込みが完了しました。",
+  "@successApplyJobOffer": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "errorApplyJobOfferTitle": "お仕事の申し込みエラー",
+  "@errorApplyJobOfferTitle": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "pastWork": "過去業務",
+  "@pastWork": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "completion": "完了",
+  "@completion": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "deadLine": "締め切り",
+  "@deadLine": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "messagePlaceholder": "メッセージを入力",
+  "@messagePlaceholder": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "messagePageText": "クリニックの状況により返信できない場合がございますので、予めご了承ください。",
+  "@messagePageText": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "confirmedCase": "確定済案件",
+  "@confirmedCase": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "caseList": "案件一覧",
+  "@caseList": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "message": "メッセージ",
+  "@message": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "fixed": "確定済",
+  "@fixed": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "scan": "スキャン",
+  "@scan": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "scanPageText": "QRコードをスキャンしてチェックインしてください",
+  "@scanPageText": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "checkInManagement": "チェックイン管理",
+  "@checkInManagement": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "checkInPageText1": "業務を始める前・終えた後には、必ず業務先でQRコードをスキャンして、チェックイン/チェックアウトしてください。",
+  "@checkInPageText1": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "checkInPageText2": "QRコードをスキャンすることで業務時間が決まり、報酬が算出されます。担当者の確認のもと、業務開始より前にチェックイン、業務終了時間より後にチェックアウトしてください。情報の修正は、チェックアウト後の「修正依頼へ」ボタンより行ってください。",
+  "@checkInPageText2": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "checkIn": "チェックイン",
+  "@checkIn": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "revisionRequestStatus": "修正依頼状況一覧",
+  "@revisionRequestStatus": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "feeAdjustmentRequest": "報酬額修正依頼はこちらから",
+  "@feeAdjustmentRequest": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "unbookmarksDialogTitle": "ブックマークを解除しますか",
+  "@unbookmarksDialogTitle": {
+    "type": "text",
+    "placeholders": {}
+  }
+}
