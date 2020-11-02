@@ -96,6 +96,7 @@ dependency_overrides:
   intl: ^0.16.1
 
 flutter:
+  generate: true
   uses-material-design: true
   fonts:
     - family: Radiotalk

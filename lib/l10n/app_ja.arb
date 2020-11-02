@@ -1,6 +1,6 @@
 {
-  "@@locale": "en",
-  "@@last_modified": "2020-10-25T16:20:27.686310",
+  "@@locale": "ja",
+  "@@last_modified": "2020-11-02T11:15:45.269337",
   "hello": "こんにちは",
   "@hello": {
     "type": "text",
@@ -78,8 +78,13 @@
     "type": "text",
     "placeholders": {}
   },
-  "saved": "保存しました。",
-  "@saved": {
+  "saving": "保存",
+  "@saving": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "preserve": "保存する",
+  "@preserve": {
     "type": "text",
     "placeholders": {}
   },
@@ -1089,6 +1094,111 @@
   },
   "fixed": "確定済",
   "@fixed": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "searchOnTheMap": "マップで\n探す",
+  "@searchOnTheMap": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "selectArea": "都道府県を選択",
+  "@selectArea": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "selectDay": "日付選択",
+  "@selectDay": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "selectEmployment": "雇用形態・報酬選択",
+  "@selectEmployment": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "fullTimeEmployee": "正社員",
+  "@fullTimeEmployee": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "shortTimeEmployee": "短期・パート",
+  "@shortTimeEmployee": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "oneOffWork": "単発パート",
+  "@oneOffWork": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "hourlySalary": "時給",
+  "@hourlySalary": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "dailySalary": "日給",
+  "@dailySalary": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "monthlySalary": "月給",
+  "@monthlySalary": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "refinedSearch": "絞り込み検索",
+  "@refinedSearch": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "clinicalDepartment": "診療科目",
+  "@clinicalDepartment": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "commitmentConditions": "こだわり条件",
+  "@commitmentConditions": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "areaName": "地域名",
+  "@areaName": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "employmentConditions": "雇用形態/報酬",
+  "@employmentConditions": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "date": "日付",
+  "@date": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "dateData": "日にち",
+  "@dateData": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "timeSlot": "時間帯",
+  "@timeSlot": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "time": "時間",
+  "@time": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "onlyJobsBeingRecruited": "募集中のお仕事のみ表示",
+  "@onlyJobsBeingRecruited": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "selectTime": "時間帯選択",
+  "@selectTime": {
     "type": "text",
     "placeholders": {}
   },
