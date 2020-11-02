@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_state_notifier/flutter_state_notifier.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:volare_radiotalk/common/index.dart';
 import 'package:provider/provider.dart';
-import 'package:volare_radiotalk/l10n/l10n.dart';
 import 'package:volare_radiotalk/presentation/pages/auth/auth_page.dart';
 import 'package:volare_radiotalk/presentation/pages/index.dart';
 import 'package:volare_radiotalk/presentation/route/route_observer.dart';
@@ -22,15 +22,13 @@ class App extends StatelessWidget {
       ),
       navigatorObservers: <NavigatorObserver>[routeObserver],
       localizationsDelegates: const [
-        L10n.delegate,
         RefreshLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
+        ...AppLocalizations.localizationsDelegates,
       ],
-      localeResolutionCallback: (deviceLocale, supportedLocales) {
-        return const Locale('ja');
-      },
+      supportedLocales: AppLocalizations.supportedLocales,
       home: MultiProvider(
         providers: [
           StateNotifierProvider<AuthNotifier, AuthState>(
