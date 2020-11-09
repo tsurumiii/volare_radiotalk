@@ -46,7 +46,7 @@ class AuthPageNotifier extends StateNotifier<AuthPageState> with LocatorMixin {
       final res = await authNotifier.signIn(state.email, state.password);
       if (res == 'OK') {
         await Navigator.of(context, rootNavigator: true).push<void>(
-          CupertinoPageRoute(builder: (_) => AppPage()),
+          CupertinoPageRoute(builder: (_) => AppPage.wrapped()),
         );
       } else if (res == 'user-not-found') {
         print('登録されてない');
