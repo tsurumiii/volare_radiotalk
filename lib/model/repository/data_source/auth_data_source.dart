@@ -26,11 +26,31 @@ class AuthDataSource implements AuthRepository {
   @override
   Future<UserCredential> signInWithAnonymously() => _auth.signInAnonymously();
 
+  @override
+  Future<void> signUp(String email, String pass) async {
+    final res = await _auth.createUserWithEmailAndPassword(
+        email: email, password: pass);
+    print(res);
+  }
+
+  @override
+  Future<String> signIn(String email, String pass) async {
+    try {
+      final res =
+          await _auth.signInWithEmailAndPassword(email: email, password: pass);
+      print(res);
+      return 'OK';
+    } on FirebaseException catch (e) {
+      print(e.code);
+      return e.code;
+    }
+  }
+
   LoginType _loginType(User user) {
     if (user?.providerData == null) {
       return LoginType.invalid;
     }
-    logger.fine(
+    print(
         'uid: ${user.uid} isAnonymous: ${user.isAnonymous} ${user.displayName}');
     var loginType = LoginType.unknown;
     if (user.isAnonymous) {
@@ -67,5 +87,10 @@ class AuthDataSource implements AuthRepository {
       }
     }
     return loginType;
+  }
+
+  @override
+  Future<void> logOut() async {
+    await _auth.signOut();
   }
 }

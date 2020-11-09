@@ -29,16 +29,7 @@ class App extends StatelessWidget {
         ...AppLocalizations.localizationsDelegates,
       ],
       supportedLocales: AppLocalizations.supportedLocales,
-      home: MultiProvider(
-        providers: [
-          StateNotifierProvider<AuthNotifier, AuthState>(
-            create: (context) => AuthNotifier(
-              context: context,
-            ),
-          ),
-        ],
-        child: const RootPage(),
-      ),
+      home: const RootPage(),
     );
   }
 }
@@ -74,7 +65,7 @@ class _RootPageState extends State<RootPage> {
 
   void _showLoginPage() => Navigator.of(context, rootNavigator: true)
           .pushReplacement<MaterialPageRoute, void>(MaterialPageRoute(
-        builder: (_) => AuthPage(),
+        builder: (_) => AuthPage.wrapped(),
       ));
 
   @override
