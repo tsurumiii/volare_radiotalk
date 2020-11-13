@@ -22,6 +22,7 @@ class AuthPageNotifier extends StateNotifier<AuthPageState> with LocatorMixin {
   final BuildContext context;
 
   AuthNotifier get authNotifier => read<AuthNotifier>();
+  UserNotifier get userNotifier => read<UserNotifier>();
   FocusNode emailFocusNode = FocusNode();
   FocusNode passFocusNode = FocusNode();
 
@@ -45,6 +46,8 @@ class AuthPageNotifier extends StateNotifier<AuthPageState> with LocatorMixin {
     if (state.isLogin) {
       final res = await authNotifier.signIn(state.email, state.password);
       if (res == 'OK') {
+        final user = authNotifier.currentUser();
+        await userNotifier.fetchUser(user.uid);
         await Navigator.of(context, rootNavigator: true).push<void>(
           CupertinoPageRoute(builder: (_) => AppPage.wrapped()),
         );
@@ -54,7 +57,12 @@ class AuthPageNotifier extends StateNotifier<AuthPageState> with LocatorMixin {
         print('形式が違う');
       }
     } else {
-      await authNotifier.singUp(state.email, state.password);
+      final res = await authNotifier.singUp(state.email, state.password);
+      await userNotifier.createUser(res);
+      await userNotifier.fetchUser(res.user.uid);
+      await Navigator.of(context, rootNavigator: true).push<void>(
+        CupertinoPageRoute(builder: (_) => AppPage.wrapped()),
+      );
     }
   }
 }

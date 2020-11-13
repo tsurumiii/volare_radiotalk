@@ -1,8 +1,10 @@
+import 'package:flamingo/flamingo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_state_notifier/flutter_state_notifier.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 import 'package:volare_radiotalk/model/notifier/auth/auth_state.dart';
+import 'package:volare_radiotalk/model/notifier/index.dart';
 import 'package:volare_radiotalk/model/repository/auth_repository.dart';
 import 'package:volare_radiotalk/model/repository/index.dart';
 
@@ -19,6 +21,9 @@ List<SingleChildWidget> get providers {
 /// DI repository
 List<SingleChildWidget> get _repositoryProviders {
   return <SingleChildWidget>[
+    Provider<DocumentAccessorRepository>(
+      create: (_) => DocumentAccessor(),
+    ),
     Provider<AuthRepository>(
       create: (_) => AuthDataSource(),
     )
@@ -31,6 +36,9 @@ List<SingleChildWidget> get _notifierProviders {
   return <SingleChildWidget>[
     StateNotifierProvider<AuthNotifier, AuthState>(
       create: (_) => AuthNotifier(),
+    ),
+    StateNotifierProvider<UserNotifier, UserState>(
+      create: (_) => UserNotifier(),
     ),
   ];
 }

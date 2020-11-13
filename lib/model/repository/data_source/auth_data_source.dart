@@ -27,10 +27,10 @@ class AuthDataSource implements AuthRepository {
   Future<UserCredential> signInWithAnonymously() => _auth.signInAnonymously();
 
   @override
-  Future<void> signUp(String email, String pass) async {
+  Future<UserCredential> signUp(String email, String pass) async {
     final res = await _auth.createUserWithEmailAndPassword(
         email: email, password: pass);
-    print(res);
+    return res;
   }
 
   @override
@@ -92,5 +92,10 @@ class AuthDataSource implements AuthRepository {
   @override
   Future<void> logOut() async {
     await _auth.signOut();
+  }
+
+  @override
+  User getCurrentUser() {
+    return _auth.currentUser;
   }
 }

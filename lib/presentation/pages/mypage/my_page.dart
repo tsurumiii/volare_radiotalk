@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:volare_radiotalk/common/index.dart';
+import 'package:volare_radiotalk/model/notifier/index.dart';
+import 'package:provider/provider.dart';
 
 import '../app_tab_navigator.dart';
 
@@ -18,6 +20,7 @@ class MyPage extends TabWidgetPage {
 class _MyPageState extends State<MyPage> {
   @override
   Widget build(BuildContext context) {
+    final authNotifier = context.watch<AuthNotifier>();
     return Scaffold(
       backgroundColor: kAppWhite500,
       appBar: AppBar(
@@ -29,7 +32,9 @@ class _MyPageState extends State<MyPage> {
               Icons.settings_outlined,
               size: 30,
             ),
-            onPressed: () {},
+            onPressed: () {
+              authNotifier.logOut();
+            },
           ),
         ],
       ),

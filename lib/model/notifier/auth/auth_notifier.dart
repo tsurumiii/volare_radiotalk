@@ -35,12 +35,17 @@ class AuthNotifier extends StateNotifier<AuthState> with LocatorMixin {
     return res;
   }
 
-  Future<void> singUp(String email, String pass) async {
+  Future<UserCredential> singUp(String email, String pass) async {
     print('called singUp');
-    await authRepository.signUp(email, pass);
+    final res = await authRepository.signUp(email, pass);
+    return res;
   }
 
   Future<void> logOut() async {
     await authRepository.logOut();
+  }
+
+  User currentUser() {
+    return authRepository.getCurrentUser();
   }
 }
