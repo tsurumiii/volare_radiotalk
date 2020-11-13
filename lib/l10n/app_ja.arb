@@ -55,5 +55,25 @@
   "@signInText": {
     "type": "text",
     "placeholders": {}
+  },
+  "edit": "変更",
+  "@edit": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "callForQuestions": "質問を募集する",
+  "@callForQuestions": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "distributionList": "配信一覧",
+  "@distributionList": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "draught": "下書き",
+  "@draught": {
+    "type": "text",
+    "placeholders": {}
   }
 }

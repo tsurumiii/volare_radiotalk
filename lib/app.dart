@@ -50,8 +50,11 @@ class _RootPageState extends State<RootPage> {
 
   void _afterBuild(Duration duration) async {
     final authNotifier = context.read<AuthNotifier>();
+    final userNotifier = context.read<UserNotifier>();
     final result = await authNotifier.startUp();
     if (result == StartUpType.loggedInUser) {
+      final currentUser = authNotifier.currentUser();
+      await userNotifier.fetchUser(currentUser.uid);
       _showMainPage();
     } else {
       _showLoginPage();

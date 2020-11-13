@@ -21,6 +21,7 @@ class _MyPageState extends State<MyPage> {
   @override
   Widget build(BuildContext context) {
     final authNotifier = context.watch<AuthNotifier>();
+    final user = context.select((UserState state) => state.user);
     return Scaffold(
       backgroundColor: kAppWhite500,
       appBar: AppBar(
@@ -57,7 +58,7 @@ class _MyPageState extends State<MyPage> {
                     width: 15,
                   ),
                   Text(
-                    'DJトクメイ',
+                    user.radioName,
                     style: const TextStyle(
                       color: kAppWhite,
                       fontWeight: FontWeight.bold,
@@ -73,9 +74,9 @@ class _MyPageState extends State<MyPage> {
                 borderSide: const BorderSide(
                   color: kAppWhite,
                 ),
-                child: const Text(
-                  '変更',
-                  style: TextStyle(
+                child: Text(
+                  context.l10n.edit,
+                  style: const TextStyle(
                     color: kAppWhite,
                   ),
                 ),
@@ -94,7 +95,7 @@ class _MyPageState extends State<MyPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'ああああああああああああああああああああああああああああああああああ',
+                  user.selfIntroduction,
                   style: const TextStyle(
                     color: kAppWhite,
                   ),
@@ -103,7 +104,7 @@ class _MyPageState extends State<MyPage> {
                   color: kAppYellow50,
                   shape: const StadiumBorder(),
                   child: Text(
-                    '質問を募集する',
+                    context.l10n.callForQuestions,
                     style: const TextStyle(
                       color: kAppBlack50,
                       fontWeight: FontWeight.bold,
@@ -126,7 +127,7 @@ class _MyPageState extends State<MyPage> {
               color: kAppWhite,
             ),
             title: Text(
-              '配信一覧',
+              context.l10n.distributionList,
               style: const TextStyle(
                 color: kAppWhite,
               ),
@@ -144,7 +145,7 @@ class _MyPageState extends State<MyPage> {
               color: kAppWhite,
             ),
             title: Text(
-              '下書き',
+              context.l10n.draught,
               style: const TextStyle(
                 color: kAppWhite,
               ),

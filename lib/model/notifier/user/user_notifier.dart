@@ -19,7 +19,8 @@ class UserNotifier extends StateNotifier<UserState> with LocatorMixin {
       ..uid = userCredential.user.uid
       ..email = userCredential.user.email
       ..radioName = ''
-      ..userImage = null;
+      ..userImage = null
+      ..selfIntroduction = '';
     await documentAccessorRepository.save(newUser);
   }
 
