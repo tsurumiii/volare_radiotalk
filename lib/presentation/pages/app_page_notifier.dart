@@ -8,6 +8,8 @@ import 'package:state_notifier/state_notifier.dart';
 import 'package:volare_radiotalk/presentation/pages/app_tab_navigator.dart';
 import 'package:volare_radiotalk/presentation/pages/home/home_page.dart';
 
+import 'myPage/my_page.dart';
+
 part 'app_page_notifier.freezed.dart';
 
 @freezed
@@ -30,7 +32,7 @@ class AppPageNotifier extends StateNotifier<AppPageState> with LocatorMixin {
 
   final List<TabWidgetPage> widgetList = [
     const HomePage(),
-    const HomePage(),
+    const MyPage(),
   ];
 
   final Map<int, GlobalKey<NavigatorState>> navigatorKeys = {
