@@ -1,8 +1,8 @@
 # volare_radiotalk
 
 TechTrainの以下ミッションに挑戦用リポジトリ  
-https://techbowl.co.jp/techtrain/missions/22　　
-https://techbowl.co.jp/techtrain/missions/23　　
+https://techbowl.co.jp/techtrain/missions/22  
+https://techbowl.co.jp/techtrain/missions/23  
 
 ## env
 * flutter
