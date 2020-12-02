@@ -1,17 +1,34 @@
 # volare_radiotalk
 
-A new Flutter project.
+TechTrainの以下ミッションに挑戦用リポジトリ  
+https://techbowl.co.jp/techtrain/missions/22　　
+https://techbowl.co.jp/techtrain/missions/23　　
 
-## Getting Started
+## env
+* flutter
+  * iOS, Androidを扱えるクロスプラットフォーム開発フレームワーク
+* firebase
+  * authentication
+    * 認証に利用
+  * cloud firestore
+    * NoSQLクラウドデータベース
+  * cloud storage
+    * 各種ファイルを保存
 
-This project is a starting point for a Flutter application.
+## versions
 
-A few resources to get you started if this is your first Flutter project:
+flutter: 1.22.2
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# volare_radiotalk
+## architecture
+DDDとMVVMのいいとこどり
+* lib/model/repository
+  * データの管理を記載
+* lib/model/notifier
+  * グローバルで使うステートを管理
+  * データを扱うロジックを記載
+* lib/presentation/pages
+  * MVVMを意識
+  * <page_name>_page.dart(View)と<page_name>_page_notifier.dart(ViewModel)に分ける
+* lib/di_container.dart
+  * DIファイル
+ 
