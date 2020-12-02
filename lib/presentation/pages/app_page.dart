@@ -70,7 +70,7 @@ class AppPage extends StatelessWidget {
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: InkWell(
           onTap: () {
-            print('録音モーダル');
+            notifier.showBottomSheet(context);
           },
           child: const SizedBox(
             height: 60,

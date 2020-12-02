@@ -75,5 +75,15 @@
   "@draught": {
     "type": "text",
     "placeholders": {}
+  },
+  "recordingPageText": "＼収録時間は12分まで／",
+  "@recordingPageText": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "recordingStart": "収録開始",
+  "@recordingStart": {
+    "type": "text",
+    "placeholders": {}
   }
 }

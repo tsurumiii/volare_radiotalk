@@ -12,7 +12,7 @@ class User extends Base<User> {
     DocumentSnapshot snapshot,
     Map<String, dynamic> values,
   }) : super(id: id, snapshot: snapshot, values: values) {
-    post = Collection<Post>(this, UserKey.post.value);
+    posts = Collection<Post>(this, UserKey.posts.value);
   }
 
   @override
@@ -41,7 +41,7 @@ class User extends Base<User> {
 
   // post
   @SubCollection()
-  Collection<Post> post;
+  Collection<Post> posts;
 
   @override
   Map<String, dynamic> toData() => <String, dynamic>{

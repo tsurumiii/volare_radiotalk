@@ -9,7 +9,12 @@ class Post extends Base<Post> {
     String id,
     DocumentSnapshot snapshot,
     Map<String, dynamic> values,
-  }) : super(id: id, snapshot: snapshot, values: values);
+    CollectionReference collectionRef,
+  }) : super(
+            id: id,
+            snapshot: snapshot,
+            values: values,
+            collectionRef: collectionRef);
 
   @override
   CollectionReference get collectionRootReference =>
@@ -30,6 +35,10 @@ class Post extends Base<Post> {
   // title
   @Field()
   String title;
+
+  // 詳細
+  @Field()
+  String detail;
 
   // postImage
   @Field()

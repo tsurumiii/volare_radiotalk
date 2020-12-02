@@ -12,6 +12,7 @@ enum PostKey {
   radioName,
   userImage,
   title,
+  detail,
   postImage,
   post,
 }
@@ -27,6 +28,8 @@ extension PostKeyExtension on PostKey {
         return 'userImage';
       case PostKey.title:
         return 'title';
+      case PostKey.detail:
+        return 'detail';
       case PostKey.postImage:
         return 'postImage';
       case PostKey.post:
@@ -44,6 +47,7 @@ Map<String, dynamic> _$toData(Post doc) {
   Helper.writeNotNull(data, 'radioName', doc.radioName);
   Helper.writeNotNull(data, 'userImage', doc.userImage);
   Helper.writeNotNull(data, 'title', doc.title);
+  Helper.writeNotNull(data, 'detail', doc.detail);
   Helper.writeNotNull(data, 'postImage', doc.postImage);
   Helper.writeNotNull(data, 'post', doc.post);
 
@@ -56,6 +60,7 @@ void _$fromData(Post doc, Map<String, dynamic> data) {
   doc.radioName = Helper.valueFromKey<String>(data, 'radioName');
   doc.userImage = Helper.valueFromKey<StorageFile>(data, 'userImage');
   doc.title = Helper.valueFromKey<String>(data, 'title');
+  doc.detail = Helper.valueFromKey<String>(data, 'detail');
   doc.postImage = Helper.valueFromKey<StorageFile>(data, 'postImage');
   doc.post = Helper.valueFromKey<StorageFile>(data, 'post');
 }

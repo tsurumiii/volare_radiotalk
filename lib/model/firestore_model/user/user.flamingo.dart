@@ -14,7 +14,7 @@ enum UserKey {
   userImage,
   selfIntroduction,
 
-  post,
+  posts,
 }
 
 extension UserKeyExtension on UserKey {
@@ -30,8 +30,8 @@ extension UserKeyExtension on UserKey {
         return 'userImage';
       case UserKey.selfIntroduction:
         return 'selfIntroduction';
-      case UserKey.post:
-        return 'post';
+      case UserKey.posts:
+        return 'posts';
       default:
         return toString();
     }
