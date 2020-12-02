@@ -14,9 +14,7 @@ extension ExceptionExtension on Exception {
     if (e is AppException) {
       return e.message;
     }
-    if (e is ImoryApiException) {
-      return e.message;
-    }
+
     return toString();
   }
 }
