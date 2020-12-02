@@ -41,6 +41,7 @@ dependencies:
   stop_watch_timer: ^0.6.0+1
   package_info: 0.4.0+17
   flutter_swiper: ^1.1.6
+  recorder_wav:
 
   # QR code
   qr_code_scanner: 0.0.12
@@ -70,13 +71,14 @@ dependencies:
   geolocator: ^6.1.0
 
   # Firebase
-  flamingo: ^1.8.1
+  flamingo: ^1.11.0
+  firebase_core: ^0.5.2
   flamingo_annotation:
-  firebase_remote_config: ^0.4.1
+  # firebase_remote_config: ^0.4.1
   firebase_auth: ^0.18.2
   firebase_analytics: ^6.1.0
-  cloud_functions: ^0.6.0
-  firebase_crashlytics: ^0.1.4+1
+  # cloud_functions: ^0.6.0
+  # firebase_crashlytics: ^0.1.4+1
   # firebase_messaging: ^7.0.0
 
   # pin code input

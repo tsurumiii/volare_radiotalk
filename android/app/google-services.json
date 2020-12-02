@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "84920883296",
+    "firebase_url": "https://volare-radiotalk.firebaseio.com",
+    "project_id": "volare-radiotalk",
+    "storage_bucket": "volare-radiotalk.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:84920883296:android:5d0341f8725d3ddc1fcb05",
+        "android_client_info": {
+          "package_name": "com.volare.radiotalk.volare_radiotalk"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "84920883296-bm6mbgneeoi0u2j7am79u20nji2495ra.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgQxX_UjjIebC8sDg2EkHjsN4LzraNUQ8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "84920883296-bm6mbgneeoi0u2j7am79u20nji2495ra.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "84920883296-vmtrgofveohfn8kbom6ajn3ugufu8vne.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.volare.radiotalk.volareRadiotalk"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
