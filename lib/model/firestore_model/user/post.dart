@@ -1,47 +1,43 @@
 import 'package:flamingo/flamingo.dart';
 import 'package:flamingo_annotation/flamingo_annotation.dart';
-
 import 'base.dart';
-import 'post.dart';
 
-part 'user.flamingo.dart';
+part 'post.flamingo.dart';
 
-class User extends Base<User> {
-  User({
+class Post extends Base<Post> {
+  Post({
     String id,
     DocumentSnapshot snapshot,
     Map<String, dynamic> values,
-  }) : super(id: id, snapshot: snapshot, values: values) {
-    post = Collection<Post>(this, UserKey.post.value);
-  }
+  }) : super(id: id, snapshot: snapshot, values: values);
 
   @override
   CollectionReference get collectionRootReference =>
-      super.collectionRootReference.doc('v1').collection('users');
+      super.collectionRootReference.doc('v1').collection('post');
 
   // uid
   @Field()
   String uid;
 
-  // email
-  @Field()
-  String email;
-
-  // ラジオネーム
+  // radioName
   @Field()
   String radioName;
 
-  // プロフィール写真
+  // userImage
   @Field()
   StorageFile userImage;
 
-  // 自己紹介
+  // title
   @Field()
-  String selfIntroduction;
+  String title;
+
+  // postImage
+  @Field()
+  StorageFile postImage;
 
   // post
-  @SubCollection()
-  Collection<Post> post;
+  @Field()
+  StorageFile post;
 
   @override
   Map<String, dynamic> toData() => <String, dynamic>{
