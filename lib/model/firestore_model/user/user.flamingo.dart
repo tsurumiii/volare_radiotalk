@@ -11,9 +11,9 @@ enum UserKey {
   uid,
   email,
   radioName,
-  userImage,
   selfIntroduction,
 
+  userImage,
   posts,
 }
 
@@ -26,10 +26,10 @@ extension UserKeyExtension on UserKey {
         return 'email';
       case UserKey.radioName:
         return 'radioName';
-      case UserKey.userImage:
-        return 'userImage';
       case UserKey.selfIntroduction:
         return 'selfIntroduction';
+      case UserKey.userImage:
+        return 'userImage';
       case UserKey.posts:
         return 'posts';
       default:
@@ -44,8 +44,9 @@ Map<String, dynamic> _$toData(User doc) {
   Helper.writeNotNull(data, 'uid', doc.uid);
   Helper.writeNotNull(data, 'email', doc.email);
   Helper.writeNotNull(data, 'radioName', doc.radioName);
-  Helper.writeNotNull(data, 'userImage', doc.userImage);
   Helper.writeNotNull(data, 'selfIntroduction', doc.selfIntroduction);
+
+  Helper.writeStorageNotNull(data, 'userImage', doc.userImage, isSetNull: true);
 
   return data;
 }
@@ -55,6 +56,7 @@ void _$fromData(User doc, Map<String, dynamic> data) {
   doc.uid = Helper.valueFromKey<String>(data, 'uid');
   doc.email = Helper.valueFromKey<String>(data, 'email');
   doc.radioName = Helper.valueFromKey<String>(data, 'radioName');
-  doc.userImage = Helper.valueFromKey<StorageFile>(data, 'userImage');
   doc.selfIntroduction = Helper.valueFromKey<String>(data, 'selfIntroduction');
+
+  doc.userImage = Helper.storageFile(data, 'userImage');
 }

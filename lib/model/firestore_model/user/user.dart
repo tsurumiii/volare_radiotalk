@@ -32,7 +32,7 @@ class User extends Base<User> {
   String radioName;
 
   // プロフィール写真
-  @Field()
+  @StorageField()
   StorageFile userImage;
 
   // 自己紹介

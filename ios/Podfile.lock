@@ -305,6 +305,10 @@ PODS:
     - FirebaseCore (~> 6.10)
     - GTMSessionFetcher/Core (~> 1.1)
   - Flutter (1.0.0)
+  - "flutter_sound (6.4.4+1)":
+    - Flutter
+    - mobile-ffmpeg-audio (= 4.3.1.LTS)
+    - "tau_sound_core (= 6.4.4+1)"
   - "geolocator (6.0.0+4)":
     - Flutter
   - google_maps_flutter (0.0.1):
@@ -373,6 +377,7 @@ PODS:
   - image_picker (0.0.1):
     - Flutter
   - leveldb-library (1.22)
+  - mobile-ffmpeg-audio (4.3.1.LTS)
   - MTBBarcodeScanner (5.0.11)
   - nanopb (1.30906.0):
     - nanopb/decode (= 1.30906.0)
@@ -393,6 +398,7 @@ PODS:
     - Flutter
   - shared_preferences (0.0.1):
     - Flutter
+  - "tau_sound_core (6.4.4+1)"
   - TOCropViewController (2.5.5)
   - url_launcher (0.0.1):
     - Flutter
@@ -408,6 +414,7 @@ DEPENDENCIES:
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
   - firebase_storage (from `.symlinks/plugins/firebase_storage/ios`)
   - Flutter (from `Flutter`)
+  - flutter_sound (from `.symlinks/plugins/flutter_sound/ios`)
   - geolocator (from `.symlinks/plugins/geolocator/ios`)
   - google_maps_flutter (from `.symlinks/plugins/google_maps_flutter/ios`)
   - image_cropper (from `.symlinks/plugins/image_cropper/ios`)
@@ -441,9 +448,11 @@ SPEC REPOS:
     - gRPC-Core
     - GTMSessionFetcher
     - leveldb-library
+    - mobile-ffmpeg-audio
     - MTBBarcodeScanner
     - nanopb
     - PromisesObjC
+    - tau_sound_core
     - TOCropViewController
 
 EXTERNAL SOURCES:
@@ -463,6 +472,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/firebase_storage/ios"
   Flutter:
     :path: Flutter
+  flutter_sound:
+    :path: ".symlinks/plugins/flutter_sound/ios"
   geolocator:
     :path: ".symlinks/plugins/geolocator/ios"
   google_maps_flutter:
@@ -507,6 +518,7 @@ SPEC CHECKSUMS:
   FirebaseInstallations: 466c7b4d1f58fe16707693091da253726a731ed2
   FirebaseStorage: 15e0f15ef3c7fec3d1899d68623e47d4447066b4
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+  flutter_sound: ccb2ba509632e3d43c9e3d5656b2d36d8c806ed3
   geolocator: 1ae40084cc6c1586ce5ad12cfc3fd38c64d05f2f
   google_maps_flutter: c7f9c73576de1fbe152a227bfd6e6c4ae8088619
   GoogleAppMeasurement: 966e88df9d19c15715137bb2ddaf52373f111436
@@ -519,6 +531,7 @@ SPEC CHECKSUMS:
   image_cropper: c8f9b4157933c7bb965a66d1c5e6c8fd408c6eb4
   image_picker: 9c3312491f862b28d21ecd8fdf0ee14e601b3f09
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
+  mobile-ffmpeg-audio: adc36047b8032bc0f8e5c4e6ab7cb110189d9b37
   MTBBarcodeScanner: f453b33c4b7dfe545d8c6484ed744d55671788cb
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
   package_info: 873975fc26034f0b863a300ad47e7f1ac6c7ec62
@@ -528,10 +541,11 @@ SPEC CHECKSUMS:
   qr_code_scanner: 16107718bdad7d708cdf6a5eacdca24b56cdf471
   recorder_wav: d6bf72b6ea28e9349bb87295bbce2bfb5dcc5db3
   shared_preferences: af6bfa751691cdc24be3045c43ec037377ada40d
+  tau_sound_core: e10eea85d70992dc421c7bc5dd8c2f590cc8357d
   TOCropViewController: da59f531f8ac8a94ef6d6c0fc34009350f9e8bfe
   url_launcher: 6fef411d543ceb26efce54b05a0a40bfd74cbbef
   webview_flutter: d2b4d6c66968ad042ad94cbb791f5b72b4678a96
 
-PODFILE CHECKSUM: aafe91acc616949ddb318b77800a7f51bffa2a4c
+PODFILE CHECKSUM: af6b891fb448119e2e3d0a226fcad7567aa13204
 
 COCOAPODS: 1.10.0

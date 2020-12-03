@@ -29,7 +29,7 @@ class Post extends Base<Post> {
   String radioName;
 
   // userImage
-  @Field()
+  @StorageField()
   StorageFile userImage;
 
   // title
@@ -41,11 +41,11 @@ class Post extends Base<Post> {
   String detail;
 
   // postImage
-  @Field()
+  @StorageField()
   StorageFile postImage;
 
   // post
-  @Field()
+  @StorageField()
   StorageFile post;
 
   @override

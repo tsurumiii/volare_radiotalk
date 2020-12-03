@@ -74,9 +74,9 @@ class RecordingPage extends StatelessWidget {
                       context.read<RecordingPageState>().isRedording;
                   print(isRedording);
                   if (!isRedording) {
-                    notifier.startRecord();
+                    notifier.record();
                   } else {
-                    notifier.stopRecord();
+                    notifier.stopRecorder();
                   }
                 },
                 child: SizedBox(

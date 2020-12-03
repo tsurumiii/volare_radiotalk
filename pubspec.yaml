@@ -42,6 +42,7 @@ dependencies:
   package_info: 0.4.0+17
   flutter_swiper: ^1.1.6
   recorder_wav:
+  flutter_sound:
 
   # QR code
   qr_code_scanner: 0.0.12
