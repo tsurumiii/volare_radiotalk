@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:volare_radiotalk/common/index.dart';
 import 'package:volare_radiotalk/model/notifier/post/post_state.dart';
 import 'package:provider/provider.dart';
+import 'package:volare_radiotalk/model/notifier/users/users_state.dart';
 import 'package:volare_radiotalk/presentation/pages/talk_list/talk_list_page.dart';
 
 import '../app_tab_navigator.dart';
@@ -118,43 +119,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
-          SizedBox(
-            height: context.deviceWidth * 0.4,
-            width: context.deviceWidth,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: 4,
-              itemBuilder: (context, i) {
-                return Padding(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: context.deviceWidth * 0.25,
-                        width: context.deviceWidth * 0.25,
-                        child: CircleAvatar(
-                          backgroundImage: NetworkImage(
-                              'https://img.sauna-ikitai.com/sauna/2779_20180530_072258_WeX9DUld9M_large.jpg'),
-                        ),
-                      ),
-                      SizedBox(
-                        width: context.deviceWidth * 0.25,
-                        child: Text(
-                          'DJトクメイ',
-                          style: const TextStyle(
-                            fontSize: 14,
-                          ),
-                          maxLines: 2,
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ],
-                  ),
-                );
-              },
-            ),
-          ),
+          _userList(context),
           const SizedBox(
             height: 40,
           ),
@@ -190,6 +155,50 @@ class _HomePageState extends State<HomePage> {
           ),
           _postList(context),
         ],
+      ),
+    );
+  }
+
+  Widget _userList(BuildContext context) {
+    final userList = context.select((UsersState state) => state.userList);
+    return SizedBox(
+      height: context.deviceWidth * 0.4,
+      width: context.deviceWidth,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: userList.length,
+        itemBuilder: (context, i) {
+          final user = userList[i];
+          return Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+            child: Column(
+              children: [
+                SizedBox(
+                  height: context.deviceWidth * 0.25,
+                  width: context.deviceWidth * 0.25,
+                  child: CircleAvatar(
+                    backgroundImage: NetworkImage(
+                      user.userImage == null
+                          ? 'https://img.sauna-ikitai.com/sauna/2779_20180530_072258_WeX9DUld9M_large.jpg'
+                          : user.userImage.url,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  width: context.deviceWidth * 0.25,
+                  child: Text(
+                    user.radioName,
+                    style: const TextStyle(
+                      fontSize: 14,
+                    ),
+                    maxLines: 2,
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ],
+            ),
+          );
+        },
       ),
     );
   }

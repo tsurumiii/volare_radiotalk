@@ -7,6 +7,8 @@ import 'package:volare_radiotalk/model/notifier/auth/auth_state.dart';
 import 'package:volare_radiotalk/model/notifier/index.dart';
 import 'package:volare_radiotalk/model/notifier/post/post_notifier.dart';
 import 'package:volare_radiotalk/model/notifier/post/post_state.dart';
+import 'package:volare_radiotalk/model/notifier/users/users_notifier.dart';
+import 'package:volare_radiotalk/model/notifier/users/users_state.dart';
 import 'package:volare_radiotalk/model/repository/auth_repository.dart';
 import 'package:volare_radiotalk/model/repository/index.dart';
 
@@ -44,6 +46,9 @@ List<SingleChildWidget> get _notifierProviders {
     ),
     StateNotifierProvider<PostNotifier, PostState>(
       create: (_) => PostNotifier(),
+    ),
+    StateNotifierProvider<UsersNotifier, UsersState>(
+      create: (_) => UsersNotifier(),
     ),
   ];
 }
