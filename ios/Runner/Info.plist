@@ -43,5 +43,11 @@
 	<false/>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Record audio for playback</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>写真をアップロードするためにアクセスします。</string>
+	<key>NSCameraUsageDescription</key>
+	<string>写真をアップロードするためにアクセスします。</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>アプリ内で使用します。</string>
 </dict>
 </plist>

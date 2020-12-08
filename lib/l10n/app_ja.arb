@@ -85,5 +85,10 @@
   "@recordingStart": {
     "type": "text",
     "placeholders": {}
+  },
+  "profileEdit": "プロフィール編集",
+  "@profileEdit": {
+    "type": "text",
+    "placeholders": {}
   }
 }

@@ -1,7 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:volare_radiotalk/common/index.dart';
 import 'package:volare_radiotalk/model/notifier/index.dart';
 import 'package:provider/provider.dart';
+import 'package:volare_radiotalk/presentation/pages/profile/profile_page.dart';
 
 import '../app_tab_navigator.dart';
 
@@ -50,10 +52,20 @@ class _MyPageState extends State<MyPage> {
             children: [
               Row(
                 children: [
-                  const Icon(
-                    Icons.person_pin,
-                    size: 50,
-                  ),
+                  user.userImage == null
+                      ? const Icon(
+                          Icons.person_pin,
+                          size: 50,
+                        )
+                      : SizedBox(
+                          height: 50,
+                          width: 50,
+                          child: CircleAvatar(
+                            child: ClipOval(
+                              child: Image.network(user.userImage.url),
+                            ),
+                          ),
+                        ),
                   const SizedBox(
                     width: 15,
                   ),
@@ -67,7 +79,13 @@ class _MyPageState extends State<MyPage> {
                 ],
               ),
               OutlineButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context, rootNavigator: true).push<void>(
+                    CupertinoPageRoute(
+                      builder: (_) => ProfilePage.wrapped(),
+                    ),
+                  );
+                },
                 color: kAppWhite,
                 highlightedBorderColor: kAppWhite,
                 disabledBorderColor: kAppWhite,
