@@ -35,6 +35,7 @@ class PostNotifier extends StateNotifier<PostState> with LocatorMixin {
         .get();
     final postList = data.docs.map((e) => Post(snapshot: e)).toList();
     print(postList);
+    postList.sort((a, b) => b.createdAt.compareTo(a.createdAt));
     state = state.copyWith(postList: postList);
   }
 

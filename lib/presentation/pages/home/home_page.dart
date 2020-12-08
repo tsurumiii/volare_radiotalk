@@ -1,7 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:volare_radiotalk/common/index.dart';
 import 'package:volare_radiotalk/model/notifier/post/post_state.dart';
 import 'package:provider/provider.dart';
+import 'package:volare_radiotalk/presentation/pages/talk_list/talk_list_page.dart';
 
 import '../app_tab_navigator.dart';
 
@@ -157,7 +159,13 @@ class _HomePageState extends State<HomePage> {
             height: 40,
           ),
           InkWell(
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(
+                CupertinoPageRoute<void>(
+                  builder: (_) => TalkListPage(),
+                ),
+              );
+            },
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 14),
               child: Row(
