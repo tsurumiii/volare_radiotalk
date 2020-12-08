@@ -58,3 +58,6 @@ const noticeTargetAppUser = 2; // アプリユーザー
 /// CollectionPagingListener Limit
 const int initialLimit = 20;
 const int pagingLimit = 20;
+
+const String noImage =
+    'https://img.sauna-ikitai.com/sauna/2779_20180530_072258_WeX9DUld9M_large.jpg';

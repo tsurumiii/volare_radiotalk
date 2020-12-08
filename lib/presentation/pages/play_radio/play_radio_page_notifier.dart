@@ -1,8 +1,19 @@
+import 'dart:async';
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_sound/flutter_sound.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:state_notifier/state_notifier.dart';
+import 'package:volare_radiotalk/model/firestore_model/user/post.dart';
 part 'play_radio_page_notifier.freezed.dart';
+
+enum PlayType {
+  start,
+  pause,
+  resume,
+  stop,
+}
 
 @freezed
 abstract class PlayRadioPageState with _$PlayRadioPageState {
@@ -11,6 +22,11 @@ abstract class PlayRadioPageState with _$PlayRadioPageState {
     @Default(false) bool mPlayerIsInited,
     @Default(false) bool mplaybackReady,
     @Default('') String fromUrl,
+    Post post,
+    @Default(0) double sliderCurrentPosition,
+    @Default(1) double maxDuration,
+    @Default(false) bool isPlaying,
+    @Default(PlayType.stop) PlayType playType,
   }) = _PlayRadioPageState;
 }
 
@@ -18,15 +34,16 @@ class PlayRadioPageNotifier extends StateNotifier<PlayRadioPageState>
     with LocatorMixin {
   PlayRadioPageNotifier({
     @required this.context,
-  }) : super(const PlayRadioPageState()) {
+  }) : super(PlayRadioPageState()) {
     Future<void>.delayed(Duration.zero, _configure);
   }
 
-  FlutterSoundPlayer _mPlayer = FlutterSoundPlayer();
+  FlutterSoundPlayer mPlayer = FlutterSoundPlayer();
+  StreamSubscription _playerSubscription;
   final BuildContext context;
 
   Future<void> _configure() async {
-    await _mPlayer.openAudioSession().then((value) {
+    await mPlayer.openAudioSession().then((value) {
       state = state.copyWith(mPlayerIsInited: true);
     });
   }
@@ -34,22 +51,84 @@ class PlayRadioPageNotifier extends StateNotifier<PlayRadioPageState>
   @override
   void dispose() {
     stopPlayer();
-    _mPlayer.closeAudioSession();
-    _mPlayer = null;
+    mPlayer.closeAudioSession();
+    mPlayer = null;
     super.dispose();
   }
 
   void setUrl(String url) {
     state = state.copyWith(fromUrl: url);
-    print(url);
+  }
+
+  void setPost(Post post) {
+    state = state.copyWith(post: post);
+  }
+
+  void cancelPlayerSubscriptions() {
+    if (_playerSubscription != null) {
+      _playerSubscription.cancel();
+      _playerSubscription = null;
+    }
+  }
+
+  void _addListeners() {
+    print('_addListeners');
+    cancelPlayerSubscriptions();
+    _playerSubscription = mPlayer.onProgress.listen((e) {
+      if (e != null) {
+        final maxDuration = e.duration.inMilliseconds.toDouble();
+        state = state.copyWith(maxDuration: maxDuration);
+        if (maxDuration <= 0) {
+          state = state.copyWith(maxDuration: 0);
+        }
+
+        final sliderCurrentPosition =
+            min(e.position.inMilliseconds.toDouble(), maxDuration);
+        state = state.copyWith(sliderCurrentPosition: sliderCurrentPosition);
+        if (sliderCurrentPosition < 0.0) {
+          state = state.copyWith(sliderCurrentPosition: 0);
+        }
+
+        // var date = DateTime.fromMillisecondsSinceEpoch(
+        //     e.position.inMilliseconds,
+        //     isUtc: true);
+        // var txt = DateFormat('mm:ss:SS', 'en_GB').format(date);
+
+        // _playerTxt = txt.substring(0, 8);
+      }
+    });
+  }
+
+  void seekToPlayer(int milliSecs) async {
+    if (mPlayer.isPlaying) {
+      await mPlayer.seekToPlayer(Duration(milliseconds: milliSecs));
+    }
   }
 
   void play() async {
-    await _mPlayer.startPlayer(
-        fromURI: state.fromUrl, codec: Codec.aacADTS, whenFinished: () {});
+    state = state.copyWith(playType: PlayType.start);
+    await mPlayer.startPlayer(
+      fromURI: state.fromUrl,
+      codec: Codec.aacADTS,
+      whenFinished: () {
+        state = state.copyWith(playType: PlayType.stop);
+      },
+    );
+    _addListeners();
   }
 
   Future<void> stopPlayer() async {
-    await _mPlayer.stopPlayer();
+    state = state.copyWith(playType: PlayType.stop);
+    await mPlayer.stopPlayer();
+  }
+
+  Future<void> pausePlayer() async {
+    state = state.copyWith(playType: PlayType.pause);
+    await mPlayer.pausePlayer();
+  }
+
+  Future<void> resumePlayer() async {
+    state = state.copyWith(playType: PlayType.resume);
+    await mPlayer.resumePlayer();
   }
 }

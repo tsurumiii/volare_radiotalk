@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:volare_radiotalk/common/index.dart';
+import 'package:volare_radiotalk/model/notifier/post/post_notifier.dart';
 import 'package:volare_radiotalk/model/notifier/post/post_state.dart';
 import 'package:provider/provider.dart';
 import 'package:volare_radiotalk/model/notifier/users/users_state.dart';
@@ -32,6 +33,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _body(BuildContext context) {
+    final postNotifier = context.watch<PostNotifier>();
     return SafeArea(
       child: ListView(
         children: [
@@ -82,7 +84,7 @@ class _HomePageState extends State<HomePage> {
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(8),
                             child: Image.network(
-                              'https://img.sauna-ikitai.com/sauna/2779_20180530_072258_WeX9DUld9M_large.jpg',
+                              noImage,
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -98,7 +100,9 @@ class _HomePageState extends State<HomePage> {
             height: 40,
           ),
           InkWell(
-            onTap: () {},
+            onTap: () {
+              postNotifier.fetchPosts();
+            },
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 14),
               child: Row(
@@ -180,9 +184,7 @@ class _HomePageState extends State<HomePage> {
                   width: context.deviceWidth * 0.25,
                   child: CircleAvatar(
                     backgroundImage: NetworkImage(
-                      user.userImage == null
-                          ? 'https://img.sauna-ikitai.com/sauna/2779_20180530_072258_WeX9DUld9M_large.jpg'
-                          : user.userImage.url,
+                      user.userImage == null ? noImage : user.userImage.url,
                     ),
                   ),
                 ),
@@ -219,7 +221,9 @@ class _HomePageState extends State<HomePage> {
           final post = postList[index];
           return InkWell(
             onTap: () {
-              playNotifier.setUrl(post.post.url);
+              playNotifier
+                ..setUrl(post.post.url)
+                ..setPost(post);
               appPageNotifer.panelController.open();
             },
             child: Padding(
@@ -232,9 +236,7 @@ class _HomePageState extends State<HomePage> {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(8),
                       child: Image.network(
-                        post.postImage == null
-                            ? 'https://img.sauna-ikitai.com/sauna/2779_20180530_072258_WeX9DUld9M_large.jpg'
-                            : post.postImage.url,
+                        post.postImage == null ? noImage : post.postImage.url,
                         fit: BoxFit.cover,
                       ),
                     ),

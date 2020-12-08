@@ -18,12 +18,22 @@ class _$PlayRadioPageStateTearOff {
       {bool isLoading = true,
       bool mPlayerIsInited = false,
       bool mplaybackReady = false,
-      String fromUrl = ''}) {
+      String fromUrl = '',
+      Post post,
+      double sliderCurrentPosition = 0,
+      double maxDuration = 1,
+      bool isPlaying = false,
+      PlayType playType = PlayType.stop}) {
     return _PlayRadioPageState(
       isLoading: isLoading,
       mPlayerIsInited: mPlayerIsInited,
       mplaybackReady: mplaybackReady,
       fromUrl: fromUrl,
+      post: post,
+      sliderCurrentPosition: sliderCurrentPosition,
+      maxDuration: maxDuration,
+      isPlaying: isPlaying,
+      playType: playType,
     );
   }
 }
@@ -38,6 +48,11 @@ mixin _$PlayRadioPageState {
   bool get mPlayerIsInited;
   bool get mplaybackReady;
   String get fromUrl;
+  Post get post;
+  double get sliderCurrentPosition;
+  double get maxDuration;
+  bool get isPlaying;
+  PlayType get playType;
 
   $PlayRadioPageStateCopyWith<PlayRadioPageState> get copyWith;
 }
@@ -51,7 +66,12 @@ abstract class $PlayRadioPageStateCopyWith<$Res> {
       {bool isLoading,
       bool mPlayerIsInited,
       bool mplaybackReady,
-      String fromUrl});
+      String fromUrl,
+      Post post,
+      double sliderCurrentPosition,
+      double maxDuration,
+      bool isPlaying,
+      PlayType playType});
 }
 
 /// @nodoc
@@ -69,6 +89,11 @@ class _$PlayRadioPageStateCopyWithImpl<$Res>
     Object mPlayerIsInited = freezed,
     Object mplaybackReady = freezed,
     Object fromUrl = freezed,
+    Object post = freezed,
+    Object sliderCurrentPosition = freezed,
+    Object maxDuration = freezed,
+    Object isPlaying = freezed,
+    Object playType = freezed,
   }) {
     return _then(_value.copyWith(
       isLoading: isLoading == freezed ? _value.isLoading : isLoading as bool,
@@ -79,6 +104,14 @@ class _$PlayRadioPageStateCopyWithImpl<$Res>
           ? _value.mplaybackReady
           : mplaybackReady as bool,
       fromUrl: fromUrl == freezed ? _value.fromUrl : fromUrl as String,
+      post: post == freezed ? _value.post : post as Post,
+      sliderCurrentPosition: sliderCurrentPosition == freezed
+          ? _value.sliderCurrentPosition
+          : sliderCurrentPosition as double,
+      maxDuration:
+          maxDuration == freezed ? _value.maxDuration : maxDuration as double,
+      isPlaying: isPlaying == freezed ? _value.isPlaying : isPlaying as bool,
+      playType: playType == freezed ? _value.playType : playType as PlayType,
     ));
   }
 }
@@ -94,7 +127,12 @@ abstract class _$PlayRadioPageStateCopyWith<$Res>
       {bool isLoading,
       bool mPlayerIsInited,
       bool mplaybackReady,
-      String fromUrl});
+      String fromUrl,
+      Post post,
+      double sliderCurrentPosition,
+      double maxDuration,
+      bool isPlaying,
+      PlayType playType});
 }
 
 /// @nodoc
@@ -114,6 +152,11 @@ class __$PlayRadioPageStateCopyWithImpl<$Res>
     Object mPlayerIsInited = freezed,
     Object mplaybackReady = freezed,
     Object fromUrl = freezed,
+    Object post = freezed,
+    Object sliderCurrentPosition = freezed,
+    Object maxDuration = freezed,
+    Object isPlaying = freezed,
+    Object playType = freezed,
   }) {
     return _then(_PlayRadioPageState(
       isLoading: isLoading == freezed ? _value.isLoading : isLoading as bool,
@@ -124,6 +167,14 @@ class __$PlayRadioPageStateCopyWithImpl<$Res>
           ? _value.mplaybackReady
           : mplaybackReady as bool,
       fromUrl: fromUrl == freezed ? _value.fromUrl : fromUrl as String,
+      post: post == freezed ? _value.post : post as Post,
+      sliderCurrentPosition: sliderCurrentPosition == freezed
+          ? _value.sliderCurrentPosition
+          : sliderCurrentPosition as double,
+      maxDuration:
+          maxDuration == freezed ? _value.maxDuration : maxDuration as double,
+      isPlaying: isPlaying == freezed ? _value.isPlaying : isPlaying as bool,
+      playType: playType == freezed ? _value.playType : playType as PlayType,
     ));
   }
 }
@@ -134,11 +185,20 @@ class _$_PlayRadioPageState implements _PlayRadioPageState {
       {this.isLoading = true,
       this.mPlayerIsInited = false,
       this.mplaybackReady = false,
-      this.fromUrl = ''})
+      this.fromUrl = '',
+      this.post,
+      this.sliderCurrentPosition = 0,
+      this.maxDuration = 1,
+      this.isPlaying = false,
+      this.playType = PlayType.stop})
       : assert(isLoading != null),
         assert(mPlayerIsInited != null),
         assert(mplaybackReady != null),
-        assert(fromUrl != null);
+        assert(fromUrl != null),
+        assert(sliderCurrentPosition != null),
+        assert(maxDuration != null),
+        assert(isPlaying != null),
+        assert(playType != null);
 
   @JsonKey(defaultValue: true)
   @override
@@ -152,10 +212,24 @@ class _$_PlayRadioPageState implements _PlayRadioPageState {
   @JsonKey(defaultValue: '')
   @override
   final String fromUrl;
+  @override
+  final Post post;
+  @JsonKey(defaultValue: 0)
+  @override
+  final double sliderCurrentPosition;
+  @JsonKey(defaultValue: 1)
+  @override
+  final double maxDuration;
+  @JsonKey(defaultValue: false)
+  @override
+  final bool isPlaying;
+  @JsonKey(defaultValue: PlayType.stop)
+  @override
+  final PlayType playType;
 
   @override
   String toString() {
-    return 'PlayRadioPageState(isLoading: $isLoading, mPlayerIsInited: $mPlayerIsInited, mplaybackReady: $mplaybackReady, fromUrl: $fromUrl)';
+    return 'PlayRadioPageState(isLoading: $isLoading, mPlayerIsInited: $mPlayerIsInited, mplaybackReady: $mplaybackReady, fromUrl: $fromUrl, post: $post, sliderCurrentPosition: $sliderCurrentPosition, maxDuration: $maxDuration, isPlaying: $isPlaying, playType: $playType)';
   }
 
   @override
@@ -172,7 +246,22 @@ class _$_PlayRadioPageState implements _PlayRadioPageState {
                 const DeepCollectionEquality()
                     .equals(other.mplaybackReady, mplaybackReady)) &&
             (identical(other.fromUrl, fromUrl) ||
-                const DeepCollectionEquality().equals(other.fromUrl, fromUrl)));
+                const DeepCollectionEquality()
+                    .equals(other.fromUrl, fromUrl)) &&
+            (identical(other.post, post) ||
+                const DeepCollectionEquality().equals(other.post, post)) &&
+            (identical(other.sliderCurrentPosition, sliderCurrentPosition) ||
+                const DeepCollectionEquality().equals(
+                    other.sliderCurrentPosition, sliderCurrentPosition)) &&
+            (identical(other.maxDuration, maxDuration) ||
+                const DeepCollectionEquality()
+                    .equals(other.maxDuration, maxDuration)) &&
+            (identical(other.isPlaying, isPlaying) ||
+                const DeepCollectionEquality()
+                    .equals(other.isPlaying, isPlaying)) &&
+            (identical(other.playType, playType) ||
+                const DeepCollectionEquality()
+                    .equals(other.playType, playType)));
   }
 
   @override
@@ -181,7 +270,12 @@ class _$_PlayRadioPageState implements _PlayRadioPageState {
       const DeepCollectionEquality().hash(isLoading) ^
       const DeepCollectionEquality().hash(mPlayerIsInited) ^
       const DeepCollectionEquality().hash(mplaybackReady) ^
-      const DeepCollectionEquality().hash(fromUrl);
+      const DeepCollectionEquality().hash(fromUrl) ^
+      const DeepCollectionEquality().hash(post) ^
+      const DeepCollectionEquality().hash(sliderCurrentPosition) ^
+      const DeepCollectionEquality().hash(maxDuration) ^
+      const DeepCollectionEquality().hash(isPlaying) ^
+      const DeepCollectionEquality().hash(playType);
 
   @override
   _$PlayRadioPageStateCopyWith<_PlayRadioPageState> get copyWith =>
@@ -193,7 +287,12 @@ abstract class _PlayRadioPageState implements PlayRadioPageState {
       {bool isLoading,
       bool mPlayerIsInited,
       bool mplaybackReady,
-      String fromUrl}) = _$_PlayRadioPageState;
+      String fromUrl,
+      Post post,
+      double sliderCurrentPosition,
+      double maxDuration,
+      bool isPlaying,
+      PlayType playType}) = _$_PlayRadioPageState;
 
   @override
   bool get isLoading;
@@ -203,6 +302,16 @@ abstract class _PlayRadioPageState implements PlayRadioPageState {
   bool get mplaybackReady;
   @override
   String get fromUrl;
+  @override
+  Post get post;
+  @override
+  double get sliderCurrentPosition;
+  @override
+  double get maxDuration;
+  @override
+  bool get isPlaying;
+  @override
+  PlayType get playType;
   @override
   _$PlayRadioPageStateCopyWith<_PlayRadioPageState> get copyWith;
 }

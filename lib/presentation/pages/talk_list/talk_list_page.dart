@@ -41,7 +41,9 @@ class TalkListPage extends StatelessWidget {
         final post = postList[i];
         return InkWell(
           onTap: () {
-            playNotifier.setUrl(post.post.url);
+            playNotifier
+              ..setUrl(post.post.url)
+              ..setPost(post);
             appPageNotifer.panelController.open();
           },
           child: Padding(
@@ -54,9 +56,7 @@ class TalkListPage extends StatelessWidget {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(8),
                     child: Image.network(
-                      post.postImage == null
-                          ? 'https://img.sauna-ikitai.com/sauna/2779_20180530_072258_WeX9DUld9M_large.jpg'
-                          : post.postImage.url,
+                      post.postImage == null ? noImage : post.postImage.url,
                       fit: BoxFit.cover,
                     ),
                   ),
