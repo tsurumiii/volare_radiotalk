@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_state_notifier/flutter_state_notifier.dart';
 import 'package:provider/provider.dart';
+import 'package:volare_radiotalk/common/helper/pick_image_helper.dart';
 import 'package:volare_radiotalk/common/index.dart';
 import 'package:volare_radiotalk/presentation/pages/post/post_page_notifier.dart';
 import 'package:volare_radiotalk/presentation/widget/index.dart';
@@ -51,6 +52,7 @@ class PostPage extends StatelessWidget {
     final notifier = context.watch<PostPageNotifier>();
     return ListView(
       children: [
+        _postImage(context),
         Padding(
           padding: const EdgeInsets.all(12),
           child: Column(
@@ -211,6 +213,47 @@ class PostPage extends StatelessWidget {
           ),
         )
       ],
+    );
+  }
+
+  Widget _postImage(BuildContext context) {
+    final notifier = context.watch<PostPageNotifier>();
+    final image = context.select((PostPageState state) => state.postImage);
+    return Center(
+      child: InkWell(
+        onTap: () async {
+          final croppedFile = await pickCropAvatarImage();
+          print(croppedFile);
+          notifier.setImageFile(croppedFile);
+        },
+        child: image != null
+            ? SizedBox(
+                height: 100,
+                width: 100,
+                child: CircleAvatar(
+                  child: ClipOval(child: Image.file(image)),
+                ),
+              )
+            : Stack(
+                children: [
+                  const Icon(
+                    Icons.person_pin,
+                    size: 100,
+                  ),
+                  const Positioned(
+                    bottom: 0,
+                    right: 0,
+                    child: CircleAvatar(
+                      backgroundColor: kAppYellow100,
+                      child: Icon(
+                        Icons.edit,
+                        color: kAppBlack,
+                      ),
+                    ),
+                  )
+                ],
+              ),
+      ),
     );
   }
 }

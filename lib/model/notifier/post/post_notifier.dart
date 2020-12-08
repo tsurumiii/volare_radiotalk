@@ -38,12 +38,18 @@ class PostNotifier extends StateNotifier<PostState> with LocatorMixin {
     state = state.copyWith(postList: postList);
   }
 
-  Future<void> sendPost({String title, String detail, String filePath}) async {
+  Future<void> sendPost(
+      {String title, String detail, String filePath, File postImage}) async {
     print('called sendPost');
     try {
+      final now = Timestamp.fromDate(DateTime.now());
+      StorageFile postImageFile;
+      if (postImage != null) {
+        final path = '${currentUser.documentPath}/postImage/${now.nanoseconds}';
+        postImageFile = await _storage.save(path, postImage);
+      }
       final ref = user.User(id: currentUser.uid).posts.ref;
 
-      final now = Timestamp.fromDate(DateTime.now());
       final path = '${currentUser.documentPath}/${now.nanoseconds}';
       final file = File(filePath);
       final postFile =
@@ -55,7 +61,8 @@ class PostNotifier extends StateNotifier<PostState> with LocatorMixin {
         ..userImage = currentUser.userImage
         ..title = title
         ..detail = detail
-        ..post = postFile;
+        ..post = postFile
+        ..postImage = postImageFile;
 
       final batch = Batch()..save(post);
       await batch.commit();

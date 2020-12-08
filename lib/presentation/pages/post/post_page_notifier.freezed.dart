@@ -14,8 +14,9 @@ class _$PostPageStateTearOff {
   const _$PostPageStateTearOff();
 
 // ignore: unused_element
-  _PostPageState call({String title = '', String detail = ''}) {
+  _PostPageState call({File postImage, String title = '', String detail = ''}) {
     return _PostPageState(
+      postImage: postImage,
       title: title,
       detail: detail,
     );
@@ -28,6 +29,7 @@ const $PostPageState = _$PostPageStateTearOff();
 
 /// @nodoc
 mixin _$PostPageState {
+  File get postImage;
   String get title;
   String get detail;
 
@@ -39,7 +41,7 @@ abstract class $PostPageStateCopyWith<$Res> {
   factory $PostPageStateCopyWith(
           PostPageState value, $Res Function(PostPageState) then) =
       _$PostPageStateCopyWithImpl<$Res>;
-  $Res call({String title, String detail});
+  $Res call({File postImage, String title, String detail});
 }
 
 /// @nodoc
@@ -53,10 +55,12 @@ class _$PostPageStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object postImage = freezed,
     Object title = freezed,
     Object detail = freezed,
   }) {
     return _then(_value.copyWith(
+      postImage: postImage == freezed ? _value.postImage : postImage as File,
       title: title == freezed ? _value.title : title as String,
       detail: detail == freezed ? _value.detail : detail as String,
     ));
@@ -70,7 +74,7 @@ abstract class _$PostPageStateCopyWith<$Res>
           _PostPageState value, $Res Function(_PostPageState) then) =
       __$PostPageStateCopyWithImpl<$Res>;
   @override
-  $Res call({String title, String detail});
+  $Res call({File postImage, String title, String detail});
 }
 
 /// @nodoc
@@ -86,10 +90,12 @@ class __$PostPageStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object postImage = freezed,
     Object title = freezed,
     Object detail = freezed,
   }) {
     return _then(_PostPageState(
+      postImage: postImage == freezed ? _value.postImage : postImage as File,
       title: title == freezed ? _value.title : title as String,
       detail: detail == freezed ? _value.detail : detail as String,
     ));
@@ -98,10 +104,12 @@ class __$PostPageStateCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_PostPageState with DiagnosticableTreeMixin implements _PostPageState {
-  const _$_PostPageState({this.title = '', this.detail = ''})
+  const _$_PostPageState({this.postImage, this.title = '', this.detail = ''})
       : assert(title != null),
         assert(detail != null);
 
+  @override
+  final File postImage;
   @JsonKey(defaultValue: '')
   @override
   final String title;
@@ -111,7 +119,7 @@ class _$_PostPageState with DiagnosticableTreeMixin implements _PostPageState {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'PostPageState(title: $title, detail: $detail)';
+    return 'PostPageState(postImage: $postImage, title: $title, detail: $detail)';
   }
 
   @override
@@ -119,6 +127,7 @@ class _$_PostPageState with DiagnosticableTreeMixin implements _PostPageState {
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'PostPageState'))
+      ..add(DiagnosticsProperty('postImage', postImage))
       ..add(DiagnosticsProperty('title', title))
       ..add(DiagnosticsProperty('detail', detail));
   }
@@ -127,6 +136,9 @@ class _$_PostPageState with DiagnosticableTreeMixin implements _PostPageState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _PostPageState &&
+            (identical(other.postImage, postImage) ||
+                const DeepCollectionEquality()
+                    .equals(other.postImage, postImage)) &&
             (identical(other.title, title) ||
                 const DeepCollectionEquality().equals(other.title, title)) &&
             (identical(other.detail, detail) ||
@@ -136,6 +148,7 @@ class _$_PostPageState with DiagnosticableTreeMixin implements _PostPageState {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(postImage) ^
       const DeepCollectionEquality().hash(title) ^
       const DeepCollectionEquality().hash(detail);
 
@@ -145,9 +158,11 @@ class _$_PostPageState with DiagnosticableTreeMixin implements _PostPageState {
 }
 
 abstract class _PostPageState implements PostPageState {
-  const factory _PostPageState({String title, String detail}) =
+  const factory _PostPageState({File postImage, String title, String detail}) =
       _$_PostPageState;
 
+  @override
+  File get postImage;
   @override
   String get title;
   @override
