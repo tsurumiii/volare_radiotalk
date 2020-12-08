@@ -24,10 +24,18 @@ class PostNotifier extends StateNotifier<PostState> with LocatorMixin {
       ..uploader.listen((data) {
         print('transferred: ${data.bytesTransferred}');
       });
+    fetchPosts();
   }
 
   Future<void> fetchPosts() async {
-    final data = user.User().posts;
+    print('called fetchPosts');
+    final data = await firestoreInstance
+        .collectionGroup('posts')
+        // .orderBy('createdAt', descending: true)
+        .get();
+    final postList = data.docs.map((e) => Post(snapshot: e)).toList();
+    print(postList);
+    state = state.copyWith(postList: postList);
   }
 
   Future<void> sendPost({String title, String detail, String filePath}) async {
@@ -42,6 +50,9 @@ class PostNotifier extends StateNotifier<PostState> with LocatorMixin {
           await _storage.save(path, file, filename: '${now.nanoseconds}.acc');
 
       final post = Post(collectionRef: ref)
+        ..uid = currentUser.uid
+        ..radioName = currentUser.radioName
+        ..userImage = currentUser.userImage
         ..title = title
         ..detail = detail
         ..post = postFile;
