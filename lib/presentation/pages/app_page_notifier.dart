@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:volare_radiotalk/common/index.dart';
 import 'package:state_notifier/state_notifier.dart';
 import 'package:volare_radiotalk/presentation/pages/app_tab_navigator.dart';
@@ -30,6 +31,7 @@ class AppPageNotifier extends StateNotifier<AppPageState> with LocatorMixin {
   }
 
   final BuildContext context;
+  PanelController panelController = PanelController();
 
   final List<TabWidgetPage> widgetList = [
     const HomePage(),

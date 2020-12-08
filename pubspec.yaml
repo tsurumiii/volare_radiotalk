@@ -26,6 +26,7 @@ dependencies:
   dots_indicator: ^1.0.0
   extended_image: ^1.2.0
   bubble: ^1.1.9+1
+  sliding_up_panel: ^1.0.2
 
   #calendar
   flutter_calendar_carousel: ^1.4.12
