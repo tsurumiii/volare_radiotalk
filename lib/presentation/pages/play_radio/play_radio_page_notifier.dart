@@ -4,6 +4,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_sound/flutter_sound.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:intl/intl.dart';
 import 'package:state_notifier/state_notifier.dart';
 import 'package:volare_radiotalk/model/firestore_model/user/post.dart';
 part 'play_radio_page_notifier.freezed.dart';
@@ -27,6 +28,7 @@ abstract class PlayRadioPageState with _$PlayRadioPageState {
     @Default(1) double maxDuration,
     @Default(false) bool isPlaying,
     @Default(PlayType.stop) PlayType playType,
+    @Default('00:00:00') String playerTxt,
   }) = _PlayRadioPageState;
 }
 
@@ -74,7 +76,8 @@ class PlayRadioPageNotifier extends StateNotifier<PlayRadioPageState>
   void _addListeners() {
     print('_addListeners');
     cancelPlayerSubscriptions();
-    _playerSubscription = mPlayer.onProgress.listen((e) {
+    _playerSubscription = mPlayer.onProgress.listen((e) async {
+      print(e);
       if (e != null) {
         final maxDuration = e.duration.inMilliseconds.toDouble();
         state = state.copyWith(maxDuration: maxDuration);
@@ -89,23 +92,32 @@ class PlayRadioPageNotifier extends StateNotifier<PlayRadioPageState>
           state = state.copyWith(sliderCurrentPosition: 0);
         }
 
-        // var date = DateTime.fromMillisecondsSinceEpoch(
-        //     e.position.inMilliseconds,
-        //     isUtc: true);
-        // var txt = DateFormat('mm:ss:SS', 'en_GB').format(date);
+        final date = DateTime.fromMillisecondsSinceEpoch(
+            e.position.inMilliseconds,
+            isUtc: true);
+        final txt = DateFormat('mm:ss:SS', 'en_GB').format(date);
 
-        // _playerTxt = txt.substring(0, 8);
+        final _playerTxt = txt.substring(0, 8);
+        print(_playerTxt);
+        await Future<void>.delayed(const Duration(milliseconds: 500));
+        state = state.copyWith(playerTxt: _playerTxt);
       }
     });
   }
 
-  void seekToPlayer(int milliSecs) async {
+  Future<void> seekToPlayer(int milliSecs) async {
     if (mPlayer.isPlaying) {
       await mPlayer.seekToPlayer(Duration(milliseconds: milliSecs));
     }
   }
 
-  void play() async {
+  Future<void> next10seconds() async {
+    if (mPlayer.isPlaying) {
+      await mPlayer.seekToPlayer(const Duration(seconds: 10));
+    }
+  }
+
+  Future<void> play() async {
     state = state.copyWith(playType: PlayType.start);
     await mPlayer.startPlayer(
       fromURI: state.fromUrl,

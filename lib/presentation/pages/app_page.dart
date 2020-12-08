@@ -36,10 +36,16 @@ class AppPage extends StatelessWidget {
     final notifier = context.watch<AppPageNotifier>();
 
     final playState = context.select((PlayRadioPageState state) => state);
+    final playNotifier = context.watch<PlayRadioPageNotifier>();
     return WillPopScope(
       onWillPop: notifier.onWillPop,
       child: Scaffold(
         body: SlidingUpPanel(
+          onPanelClosed: () {
+            playNotifier
+              ..stopPlayer()
+              ..setPost(null);
+          },
           controller: notifier.panelController,
           minHeight: 0,
           maxHeight: context.deviceHeight * 0.95,
@@ -142,6 +148,9 @@ class AppPage extends StatelessWidget {
               ),
               onPressed: () {
                 notifier.panelController.close();
+                playNotifier
+                  ..stopPlayer()
+                  ..setPost(null);
               },
             ),
           ],
@@ -222,25 +231,52 @@ class AppPage extends StatelessWidget {
         //         : playState.maxDuration.toInt(),
         //   ),
         // ),
-        InkWell(
-          child: SizedBox(
-            height: 60,
-            width: 60,
-            child: CircleAvatar(
-              backgroundColor: kAppYellow100,
-              child: _icon(context, playState.playType),
+        // Text(
+        //   playState.playerTxt,
+        //   style: const TextStyle(
+        //     color: kAppWhite,
+        //   ),
+        // ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            InkWell(
+              child: SizedBox(
+                height: 60,
+                width: 60,
+                child: CircleAvatar(
+                  backgroundColor: kAppYellow100,
+                  child: _icon(context, playState.playType),
+                ),
+              ),
+              onTap: () {
+                if (playState.playType == PlayType.stop) {
+                  playNotifier.play();
+                } else if (playState.playType == PlayType.start ||
+                    playState.playType == PlayType.resume) {
+                  playNotifier.pausePlayer();
+                } else if (playState.playType == PlayType.pause) {
+                  playNotifier.resumePlayer();
+                }
+              },
             ),
-          ),
-          onTap: () {
-            if (playState.playType == PlayType.stop) {
-              playNotifier.play();
-            } else if (playState.playType == PlayType.start ||
-                playState.playType == PlayType.resume) {
-              playNotifier.pausePlayer();
-            } else if (playState.playType == PlayType.pause) {
-              playNotifier.resumePlayer();
-            }
-          },
+            // InkWell(
+            //   child: SizedBox(
+            //     height: 60,
+            //     width: 60,
+            //     child: CircleAvatar(
+            //       backgroundColor: kAppYellow100,
+            //       child: Icon(
+            //         Icons.forward_10,
+            //         color: kAppWhite,
+            //       ),
+            //     ),
+            //   ),
+            //   onTap: () {
+            //     playNotifier.next10seconds();
+            //   },
+            // ),
+          ],
         ),
       ],
     );
