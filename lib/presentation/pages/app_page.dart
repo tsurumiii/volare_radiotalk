@@ -5,7 +5,6 @@ import 'package:flutter_state_notifier/flutter_state_notifier.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:volare_radiotalk/common/index.dart';
 import 'package:provider/provider.dart';
-import 'package:volare_radiotalk/model/firestore_model/user/post.dart';
 import 'package:volare_radiotalk/presentation/pages/app_page_notifier.dart';
 
 import 'play_radio/play_radio_page_notifier.dart';
@@ -217,29 +216,67 @@ class AppPage extends StatelessWidget {
             ],
           ),
         ),
-        // Padding(
-        //   padding: const EdgeInsets.all(10),
-        //   child: Slider(
-        //     value: min(playState.sliderCurrentPosition, playState.maxDuration),
-        //     min: 0,
-        //     max: playState.maxDuration,
-        //     onChanged: (value) async {
-        //       await playNotifier.seekToPlayer(value.toInt());
-        //     },
-        //     divisions: playState.maxDuration == 0.0
-        //         ? 1
-        //         : playState.maxDuration.toInt(),
-        //   ),
-        // ),
-        // Text(
-        //   playState.playerTxt,
-        //   style: const TextStyle(
-        //     color: kAppWhite,
-        //   ),
-        // ),
+        Padding(
+          padding: const EdgeInsets.all(10),
+          child: Column(
+            children: [
+              Slider(
+                activeColor: kAppYellow100,
+                inactiveColor: kAppGray50,
+                value:
+                    min(playState.sliderCurrentPosition, playState.maxDuration),
+                min: 0,
+                max: playState.maxDuration,
+                onChanged: (value) async {
+                  print(value);
+                  await playNotifier.seekToPlayer(value.toInt());
+                },
+                divisions: playState.maxDuration == 0.0
+                    ? 1
+                    : playState.maxDuration.toInt(),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      playState.playerTxt,
+                      style: const TextStyle(
+                        color: kAppWhite,
+                      ),
+                    ),
+                    Text(
+                      playNotifier.maxDuration(),
+                      style: const TextStyle(
+                        color: kAppWhite,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
         Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
+            InkWell(
+              child: const SizedBox(
+                height: 60,
+                width: 60,
+                child: CircleAvatar(
+                  backgroundColor: kAppYellow100,
+                  child: Icon(
+                    Icons.replay_10,
+                    color: kAppWhite500,
+                  ),
+                ),
+              ),
+              onTap: () {
+                playNotifier.back10seconds();
+              },
+            ),
             InkWell(
               child: SizedBox(
                 height: 60,
@@ -260,22 +297,22 @@ class AppPage extends StatelessWidget {
                 }
               },
             ),
-            // InkWell(
-            //   child: SizedBox(
-            //     height: 60,
-            //     width: 60,
-            //     child: CircleAvatar(
-            //       backgroundColor: kAppYellow100,
-            //       child: Icon(
-            //         Icons.forward_10,
-            //         color: kAppWhite,
-            //       ),
-            //     ),
-            //   ),
-            //   onTap: () {
-            //     playNotifier.next10seconds();
-            //   },
-            // ),
+            InkWell(
+              child: const SizedBox(
+                height: 60,
+                width: 60,
+                child: CircleAvatar(
+                  backgroundColor: kAppYellow100,
+                  child: Icon(
+                    Icons.forward_10,
+                    color: kAppWhite500,
+                  ),
+                ),
+              ),
+              onTap: () {
+                playNotifier.next10seconds();
+              },
+            ),
           ],
         ),
       ],

@@ -24,7 +24,8 @@ class _$PlayRadioPageStateTearOff {
       double maxDuration = 1,
       bool isPlaying = false,
       PlayType playType = PlayType.stop,
-      String playerTxt = '00:00:00'}) {
+      String playerTxt = '00:00:00',
+      int currentMilliseconds = 0}) {
     return _PlayRadioPageState(
       isLoading: isLoading,
       mPlayerIsInited: mPlayerIsInited,
@@ -36,6 +37,7 @@ class _$PlayRadioPageStateTearOff {
       isPlaying: isPlaying,
       playType: playType,
       playerTxt: playerTxt,
+      currentMilliseconds: currentMilliseconds,
     );
   }
 }
@@ -56,6 +58,7 @@ mixin _$PlayRadioPageState {
   bool get isPlaying;
   PlayType get playType;
   String get playerTxt;
+  int get currentMilliseconds;
 
   $PlayRadioPageStateCopyWith<PlayRadioPageState> get copyWith;
 }
@@ -75,7 +78,8 @@ abstract class $PlayRadioPageStateCopyWith<$Res> {
       double maxDuration,
       bool isPlaying,
       PlayType playType,
-      String playerTxt});
+      String playerTxt,
+      int currentMilliseconds});
 }
 
 /// @nodoc
@@ -99,6 +103,7 @@ class _$PlayRadioPageStateCopyWithImpl<$Res>
     Object isPlaying = freezed,
     Object playType = freezed,
     Object playerTxt = freezed,
+    Object currentMilliseconds = freezed,
   }) {
     return _then(_value.copyWith(
       isLoading: isLoading == freezed ? _value.isLoading : isLoading as bool,
@@ -118,6 +123,9 @@ class _$PlayRadioPageStateCopyWithImpl<$Res>
       isPlaying: isPlaying == freezed ? _value.isPlaying : isPlaying as bool,
       playType: playType == freezed ? _value.playType : playType as PlayType,
       playerTxt: playerTxt == freezed ? _value.playerTxt : playerTxt as String,
+      currentMilliseconds: currentMilliseconds == freezed
+          ? _value.currentMilliseconds
+          : currentMilliseconds as int,
     ));
   }
 }
@@ -139,7 +147,8 @@ abstract class _$PlayRadioPageStateCopyWith<$Res>
       double maxDuration,
       bool isPlaying,
       PlayType playType,
-      String playerTxt});
+      String playerTxt,
+      int currentMilliseconds});
 }
 
 /// @nodoc
@@ -165,6 +174,7 @@ class __$PlayRadioPageStateCopyWithImpl<$Res>
     Object isPlaying = freezed,
     Object playType = freezed,
     Object playerTxt = freezed,
+    Object currentMilliseconds = freezed,
   }) {
     return _then(_PlayRadioPageState(
       isLoading: isLoading == freezed ? _value.isLoading : isLoading as bool,
@@ -184,6 +194,9 @@ class __$PlayRadioPageStateCopyWithImpl<$Res>
       isPlaying: isPlaying == freezed ? _value.isPlaying : isPlaying as bool,
       playType: playType == freezed ? _value.playType : playType as PlayType,
       playerTxt: playerTxt == freezed ? _value.playerTxt : playerTxt as String,
+      currentMilliseconds: currentMilliseconds == freezed
+          ? _value.currentMilliseconds
+          : currentMilliseconds as int,
     ));
   }
 }
@@ -200,7 +213,8 @@ class _$_PlayRadioPageState implements _PlayRadioPageState {
       this.maxDuration = 1,
       this.isPlaying = false,
       this.playType = PlayType.stop,
-      this.playerTxt = '00:00:00'})
+      this.playerTxt = '00:00:00',
+      this.currentMilliseconds = 0})
       : assert(isLoading != null),
         assert(mPlayerIsInited != null),
         assert(mplaybackReady != null),
@@ -209,7 +223,8 @@ class _$_PlayRadioPageState implements _PlayRadioPageState {
         assert(maxDuration != null),
         assert(isPlaying != null),
         assert(playType != null),
-        assert(playerTxt != null);
+        assert(playerTxt != null),
+        assert(currentMilliseconds != null);
 
   @JsonKey(defaultValue: true)
   @override
@@ -240,10 +255,13 @@ class _$_PlayRadioPageState implements _PlayRadioPageState {
   @JsonKey(defaultValue: '00:00:00')
   @override
   final String playerTxt;
+  @JsonKey(defaultValue: 0)
+  @override
+  final int currentMilliseconds;
 
   @override
   String toString() {
-    return 'PlayRadioPageState(isLoading: $isLoading, mPlayerIsInited: $mPlayerIsInited, mplaybackReady: $mplaybackReady, fromUrl: $fromUrl, post: $post, sliderCurrentPosition: $sliderCurrentPosition, maxDuration: $maxDuration, isPlaying: $isPlaying, playType: $playType, playerTxt: $playerTxt)';
+    return 'PlayRadioPageState(isLoading: $isLoading, mPlayerIsInited: $mPlayerIsInited, mplaybackReady: $mplaybackReady, fromUrl: $fromUrl, post: $post, sliderCurrentPosition: $sliderCurrentPosition, maxDuration: $maxDuration, isPlaying: $isPlaying, playType: $playType, playerTxt: $playerTxt, currentMilliseconds: $currentMilliseconds)';
   }
 
   @override
@@ -278,7 +296,10 @@ class _$_PlayRadioPageState implements _PlayRadioPageState {
                     .equals(other.playType, playType)) &&
             (identical(other.playerTxt, playerTxt) ||
                 const DeepCollectionEquality()
-                    .equals(other.playerTxt, playerTxt)));
+                    .equals(other.playerTxt, playerTxt)) &&
+            (identical(other.currentMilliseconds, currentMilliseconds) ||
+                const DeepCollectionEquality()
+                    .equals(other.currentMilliseconds, currentMilliseconds)));
   }
 
   @override
@@ -293,7 +314,8 @@ class _$_PlayRadioPageState implements _PlayRadioPageState {
       const DeepCollectionEquality().hash(maxDuration) ^
       const DeepCollectionEquality().hash(isPlaying) ^
       const DeepCollectionEquality().hash(playType) ^
-      const DeepCollectionEquality().hash(playerTxt);
+      const DeepCollectionEquality().hash(playerTxt) ^
+      const DeepCollectionEquality().hash(currentMilliseconds);
 
   @override
   _$PlayRadioPageStateCopyWith<_PlayRadioPageState> get copyWith =>
@@ -311,7 +333,8 @@ abstract class _PlayRadioPageState implements PlayRadioPageState {
       double maxDuration,
       bool isPlaying,
       PlayType playType,
-      String playerTxt}) = _$_PlayRadioPageState;
+      String playerTxt,
+      int currentMilliseconds}) = _$_PlayRadioPageState;
 
   @override
   bool get isLoading;
@@ -333,6 +356,8 @@ abstract class _PlayRadioPageState implements PlayRadioPageState {
   PlayType get playType;
   @override
   String get playerTxt;
+  @override
+  int get currentMilliseconds;
   @override
   _$PlayRadioPageStateCopyWith<_PlayRadioPageState> get copyWith;
 }

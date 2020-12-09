@@ -29,6 +29,7 @@ abstract class PlayRadioPageState with _$PlayRadioPageState {
     @Default(false) bool isPlaying,
     @Default(PlayType.stop) PlayType playType,
     @Default('00:00:00') String playerTxt,
+    @Default(0) int currentMilliseconds,
   }) = _PlayRadioPageState;
 }
 
@@ -48,6 +49,7 @@ class PlayRadioPageNotifier extends StateNotifier<PlayRadioPageState>
     await mPlayer.openAudioSession().then((value) {
       state = state.copyWith(mPlayerIsInited: true);
     });
+    await mPlayer.setSubscriptionDuration(const Duration(milliseconds: 10));
   }
 
   @override
@@ -77,7 +79,6 @@ class PlayRadioPageNotifier extends StateNotifier<PlayRadioPageState>
     print('_addListeners');
     cancelPlayerSubscriptions();
     _playerSubscription = mPlayer.onProgress.listen((e) async {
-      print(e);
       if (e != null) {
         final maxDuration = e.duration.inMilliseconds.toDouble();
         state = state.copyWith(maxDuration: maxDuration);
@@ -99,8 +100,11 @@ class PlayRadioPageNotifier extends StateNotifier<PlayRadioPageState>
 
         final _playerTxt = txt.substring(0, 8);
         print(_playerTxt);
-        await Future<void>.delayed(const Duration(milliseconds: 500));
-        state = state.copyWith(playerTxt: _playerTxt);
+        // await Future<void>.delayed(const Duration(milliseconds: 500));
+        state = state.copyWith(
+            playerTxt: _playerTxt,
+            currentMilliseconds: e.position.inMilliseconds);
+        print(e.position.inMilliseconds);
       }
     });
   }
@@ -111,9 +115,26 @@ class PlayRadioPageNotifier extends StateNotifier<PlayRadioPageState>
     }
   }
 
+  String maxDuration() {
+    final date = DateTime.fromMillisecondsSinceEpoch(state.maxDuration.toInt(),
+        isUtc: true);
+    final txt = DateFormat('mm:ss:SS', 'en_GB').format(date);
+
+    final _playerTxt = txt.substring(0, 8);
+    return _playerTxt;
+  }
+
   Future<void> next10seconds() async {
     if (mPlayer.isPlaying) {
-      await mPlayer.seekToPlayer(const Duration(seconds: 10));
+      await mPlayer.seekToPlayer(
+          Duration(milliseconds: state.currentMilliseconds + 10000));
+    }
+  }
+
+  Future<void> back10seconds() async {
+    if (mPlayer.isPlaying) {
+      await mPlayer.seekToPlayer(
+          Duration(milliseconds: state.currentMilliseconds - 10000));
     }
   }
 
@@ -132,6 +153,14 @@ class PlayRadioPageNotifier extends StateNotifier<PlayRadioPageState>
   Future<void> stopPlayer() async {
     state = state.copyWith(playType: PlayType.stop);
     await mPlayer.stopPlayer();
+    if (_playerSubscription != null) {
+      await _playerSubscription.cancel();
+      _playerSubscription = null;
+    }
+    state = state.copyWith(
+        sliderCurrentPosition: 0,
+        playerTxt: '00:00:00',
+        currentMilliseconds: 0);
   }
 
   Future<void> pausePlayer() async {
