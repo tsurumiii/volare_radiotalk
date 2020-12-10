@@ -151,6 +151,7 @@ class PlayRadioPageNotifier extends StateNotifier<PlayRadioPageState>
   }
 
   Future<void> stopPlayer() async {
+    print('stopPlayer');
     state = state.copyWith(playType: PlayType.stop);
     await mPlayer.stopPlayer();
     if (_playerSubscription != null) {
@@ -160,7 +161,8 @@ class PlayRadioPageNotifier extends StateNotifier<PlayRadioPageState>
     state = state.copyWith(
         sliderCurrentPosition: 0,
         playerTxt: '00:00:00',
-        currentMilliseconds: 0);
+        currentMilliseconds: 0,
+        maxDuration: 1);
   }
 
   Future<void> pausePlayer() async {

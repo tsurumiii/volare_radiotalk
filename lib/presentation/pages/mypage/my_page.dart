@@ -42,20 +42,17 @@ class _MyPageState extends State<MyPage> {
             children: [
               Row(
                 children: [
-                  user.userImage == null
-                      ? const Icon(
-                          Icons.person_pin,
-                          size: 50,
-                        )
-                      : SizedBox(
-                          height: 50,
-                          width: 50,
-                          child: CircleAvatar(
-                            child: ClipOval(
-                              child: Image.network(user.userImage.url),
-                            ),
-                          ),
-                        ),
+                  SizedBox(
+                    height: 50,
+                    width: 50,
+                    child: CircleAvatar(
+                      child: ClipOval(
+                        child: Image.network(user.userImage == null
+                            ? noImage
+                            : user.userImage.url),
+                      ),
+                    ),
+                  ),
                   const SizedBox(
                     width: 15,
                   ),
