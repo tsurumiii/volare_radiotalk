@@ -81,6 +81,7 @@ class AuthPage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(10),
               child: TextField(
+                obscureText: true,
                 focusNode: notifer.passFocusNode,
                 onChanged: notifer.onChangePassword,
                 style: const TextStyle(
