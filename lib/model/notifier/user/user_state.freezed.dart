@@ -14,9 +14,10 @@ class _$UserStateTearOff {
   const _$UserStateTearOff();
 
 // ignore: unused_element
-  _UserState call({User user}) {
+  _UserState call({User user, List<Post> posts = const <Post>[]}) {
     return _UserState(
       user: user,
+      posts: posts,
     );
   }
 }
@@ -28,6 +29,7 @@ const $UserState = _$UserStateTearOff();
 /// @nodoc
 mixin _$UserState {
   User get user;
+  List<Post> get posts;
 
   $UserStateCopyWith<UserState> get copyWith;
 }
@@ -36,7 +38,7 @@ mixin _$UserState {
 abstract class $UserStateCopyWith<$Res> {
   factory $UserStateCopyWith(UserState value, $Res Function(UserState) then) =
       _$UserStateCopyWithImpl<$Res>;
-  $Res call({User user});
+  $Res call({User user, List<Post> posts});
 }
 
 /// @nodoc
@@ -50,9 +52,11 @@ class _$UserStateCopyWithImpl<$Res> implements $UserStateCopyWith<$Res> {
   @override
   $Res call({
     Object user = freezed,
+    Object posts = freezed,
   }) {
     return _then(_value.copyWith(
       user: user == freezed ? _value.user : user as User,
+      posts: posts == freezed ? _value.posts : posts as List<Post>,
     ));
   }
 }
@@ -63,7 +67,7 @@ abstract class _$UserStateCopyWith<$Res> implements $UserStateCopyWith<$Res> {
           _UserState value, $Res Function(_UserState) then) =
       __$UserStateCopyWithImpl<$Res>;
   @override
-  $Res call({User user});
+  $Res call({User user, List<Post> posts});
 }
 
 /// @nodoc
@@ -78,23 +82,29 @@ class __$UserStateCopyWithImpl<$Res> extends _$UserStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object user = freezed,
+    Object posts = freezed,
   }) {
     return _then(_UserState(
       user: user == freezed ? _value.user : user as User,
+      posts: posts == freezed ? _value.posts : posts as List<Post>,
     ));
   }
 }
 
 /// @nodoc
 class _$_UserState with DiagnosticableTreeMixin implements _UserState {
-  const _$_UserState({this.user});
+  const _$_UserState({this.user, this.posts = const <Post>[]})
+      : assert(posts != null);
 
   @override
   final User user;
+  @JsonKey(defaultValue: const <Post>[])
+  @override
+  final List<Post> posts;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'UserState(user: $user)';
+    return 'UserState(user: $user, posts: $posts)';
   }
 
   @override
@@ -102,7 +112,8 @@ class _$_UserState with DiagnosticableTreeMixin implements _UserState {
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'UserState'))
-      ..add(DiagnosticsProperty('user', user));
+      ..add(DiagnosticsProperty('user', user))
+      ..add(DiagnosticsProperty('posts', posts));
   }
 
   @override
@@ -110,12 +121,16 @@ class _$_UserState with DiagnosticableTreeMixin implements _UserState {
     return identical(this, other) ||
         (other is _UserState &&
             (identical(other.user, user) ||
-                const DeepCollectionEquality().equals(other.user, user)));
+                const DeepCollectionEquality().equals(other.user, user)) &&
+            (identical(other.posts, posts) ||
+                const DeepCollectionEquality().equals(other.posts, posts)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(user);
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(user) ^
+      const DeepCollectionEquality().hash(posts);
 
   @override
   _$UserStateCopyWith<_UserState> get copyWith =>
@@ -123,10 +138,12 @@ class _$_UserState with DiagnosticableTreeMixin implements _UserState {
 }
 
 abstract class _UserState implements UserState {
-  const factory _UserState({User user}) = _$_UserState;
+  const factory _UserState({User user, List<Post> posts}) = _$_UserState;
 
   @override
   User get user;
+  @override
+  List<Post> get posts;
   @override
   _$UserStateCopyWith<_UserState> get copyWith;
 }

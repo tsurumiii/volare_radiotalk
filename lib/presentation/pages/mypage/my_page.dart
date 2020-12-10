@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:volare_radiotalk/common/index.dart';
 import 'package:volare_radiotalk/model/notifier/index.dart';
 import 'package:provider/provider.dart';
+import 'package:volare_radiotalk/presentation/pages/mypage/post_list.dart';
 import 'package:volare_radiotalk/presentation/pages/profile/profile_page.dart';
 
 import '../app_tab_navigator.dart';
@@ -126,7 +127,14 @@ class _MyPageState extends State<MyPage> {
           ),
           ListTile(
             tileColor: kAppWhite500,
-            onTap: () {},
+            onTap: () {
+              userNotifier.fetchPost();
+              Navigator.of(context).push<void>(
+                CupertinoPageRoute(
+                  builder: (_) => PostListPage(),
+                ),
+              );
+            },
             leading: const Icon(
               Icons.play_circle_outline_outlined,
               color: kAppWhite,

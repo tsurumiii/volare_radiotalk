@@ -5,6 +5,7 @@ import 'package:flamingo/flamingo.dart';
 import 'package:state_notifier/state_notifier.dart';
 import 'package:volare_radiotalk/model/firestore_model/user/index.dart' as user;
 import 'package:volare_radiotalk/model/firestore_model/user/index.dart';
+import 'package:volare_radiotalk/model/firestore_model/user/post.dart';
 import 'package:volare_radiotalk/model/notifier/user/user_state.dart';
 
 class UserNotifier extends StateNotifier<UserState> with LocatorMixin {
@@ -63,5 +64,12 @@ class UserNotifier extends StateNotifier<UserState> with LocatorMixin {
 
       await documentAccessorRepository.update(updateUser);
     }
+  }
+
+  Future<void> fetchPost() async {
+    final data = await user.User(id: state.user.uid).posts.ref.get();
+    final snapShot = data.docs.toList();
+    final postList = snapShot.map((e) => Post(snapshot: e)).toList();
+    state = state.copyWith(posts: postList);
   }
 }
