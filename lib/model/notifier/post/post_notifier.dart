@@ -14,6 +14,7 @@ class PostNotifier extends StateNotifier<PostState> with LocatorMixin {
 
   DocumentAccessorRepository get documentAccessorRepository =>
       read<DocumentAccessorRepository>();
+  CollectionPagingListener<Post> _collectionPagingListener;
 
   user.User get currentUser => read<UserNotifier>().state.user;
   final _storage = Storage();
@@ -29,21 +30,21 @@ class PostNotifier extends StateNotifier<PostState> with LocatorMixin {
 
   Future<void> fetchPosts() async {
     print('called fetchPosts');
-    final collectionPagingListener = CollectionPagingListener<Post>(
+    _collectionPagingListener = CollectionPagingListener<Post>(
       query: firestoreInstance.collectionGroup('posts'),
-      initialLimit: 20,
-      pagingLimit: 20,
+      initialLimit: 100,
+      pagingLimit: 100,
       decode: (snap) => Post(snapshot: snap),
-    )..fetch();
-    collectionPagingListener.docChanges.listen((event) {
-      final postList = <Post>[];
-      for (var item in event) {
-        final post = item.doc;
-        postList.add(post);
-      }
-      postList.sort((a, b) => b.createdAt.compareTo(a.createdAt));
-      state = state.copyWith(postList: postList);
-    });
+    )
+      ..fetch()
+      ..data.listen((event) async {
+        print('fetchPosts listen');
+        final data = event.map((e) => e).toList()
+          ..sort((a, b) => b.createdAt.compareTo(a.createdAt));
+
+        print(data.length);
+        state = state.copyWith(postList: data);
+      });
   }
 
   Future<void> sendPost(

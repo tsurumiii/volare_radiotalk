@@ -97,6 +97,9 @@ class RecordingPageNotifier extends StateNotifier<RecordingPageState>
     stopWatchTimer.onExecute.add(StopWatchExecute.reset);
     state = state.copyWith(isRedording: false);
     await _mRecorder.stopRecorder();
+    if (!mounted) {
+      return;
+    }
 
     state = state.copyWith(mplaybackReady: true);
     print(state.mPath);

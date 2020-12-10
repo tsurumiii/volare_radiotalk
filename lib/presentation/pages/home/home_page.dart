@@ -216,7 +216,11 @@ class _HomePageState extends State<HomePage> {
       child: ListView.builder(
         padding: const EdgeInsets.symmetric(horizontal: 14),
         physics: const NeverScrollableScrollPhysics(),
-        itemCount: postList.isEmpty ? 0 : 4,
+        itemCount: postList.isEmpty
+            ? 0
+            : postList.length <= 4
+                ? postList.length
+                : 4,
         itemBuilder: (context, index) {
           final post = postList[index];
           return InkWell(
@@ -257,7 +261,7 @@ class _HomePageState extends State<HomePage> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                post.title,
+                                post.title ?? '',
                                 style: const TextStyle(
                                   color: kAppWhite,
                                 ),
