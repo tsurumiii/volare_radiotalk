@@ -24,22 +24,12 @@ class _MyPageState extends State<MyPage> {
   Widget build(BuildContext context) {
     final authNotifier = context.watch<AuthNotifier>();
     final user = context.select((UserState state) => state.user);
+    final userNotifier = context.watch<UserNotifier>();
     return Scaffold(
       backgroundColor: kAppWhite500,
       appBar: AppBar(
         backgroundColor: kAppWhite500,
         elevation: 0,
-        actions: [
-          IconButton(
-            icon: const Icon(
-              Icons.settings_outlined,
-              size: 30,
-            ),
-            onPressed: () {
-              authNotifier.logOut();
-            },
-          ),
-        ],
       ),
       body: ListView(
         padding: const EdgeInsets.symmetric(
@@ -80,11 +70,15 @@ class _MyPageState extends State<MyPage> {
               ),
               OutlineButton(
                 onPressed: () {
-                  Navigator.of(context, rootNavigator: true).push<void>(
+                  Navigator.of(context, rootNavigator: true)
+                      .push<void>(
                     CupertinoPageRoute(
                       builder: (_) => ProfilePage.wrapped(),
                     ),
-                  );
+                  )
+                      .then((value) {
+                    userNotifier.fetchUser(user.uid);
+                  });
                 },
                 color: kAppWhite,
                 highlightedBorderColor: kAppWhite,
@@ -118,18 +112,18 @@ class _MyPageState extends State<MyPage> {
                     color: kAppWhite,
                   ),
                 ),
-                RaisedButton(
-                  color: kAppYellow50,
-                  shape: const StadiumBorder(),
-                  child: Text(
-                    context.l10n.callForQuestions,
-                    style: const TextStyle(
-                      color: kAppBlack50,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  onPressed: () {},
-                ),
+                // RaisedButton(
+                //   color: kAppYellow50,
+                //   shape: const StadiumBorder(),
+                //   child: Text(
+                //     context.l10n.callForQuestions,
+                //     style: const TextStyle(
+                //       color: kAppBlack50,
+                //       fontWeight: FontWeight.bold,
+                //     ),
+                //   ),
+                //   onPressed: () {},
+                // ),
               ],
             ),
           ),
@@ -151,24 +145,24 @@ class _MyPageState extends State<MyPage> {
               ),
             ),
           ),
-          ListTile(
-            tileColor: kAppWhite500,
-            onTap: () {},
-            leading: const Icon(
-              Icons.description_outlined,
-              color: kAppWhite,
-            ),
-            trailing: const Icon(
-              Icons.navigate_next,
-              color: kAppWhite,
-            ),
-            title: Text(
-              context.l10n.draught,
-              style: const TextStyle(
-                color: kAppWhite,
-              ),
-            ),
-          ),
+          // ListTile(
+          //   tileColor: kAppWhite500,
+          //   onTap: () {},
+          //   leading: const Icon(
+          //     Icons.description_outlined,
+          //     color: kAppWhite,
+          //   ),
+          //   trailing: const Icon(
+          //     Icons.navigate_next,
+          //     color: kAppWhite,
+          //   ),
+          //   title: Text(
+          //     context.l10n.draught,
+          //     style: const TextStyle(
+          //       color: kAppWhite,
+          //     ),
+          //   ),
+          // ),
         ],
       ),
     );

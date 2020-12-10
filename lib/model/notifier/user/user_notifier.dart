@@ -35,6 +35,7 @@ class UserNotifier extends StateNotifier<UserState> with LocatorMixin {
   }
 
   Future<void> fetchUser(String uid) async {
+    print('called fetchUser');
     final data =
         await documentAccessorRepository.load<user.User>(user.User(id: uid));
     state = state.copyWith(user: data);
@@ -52,14 +53,14 @@ class UserNotifier extends StateNotifier<UserState> with LocatorMixin {
         ..radioName = radioName
         ..selfIntroduction = selfIntroduction
         ..userImage = postFile;
-      await fetchUser(uid);
+
       await documentAccessorRepository.update(updateUser);
     } else {
       final uid = state.user.uid;
       final updateUser = user.User(id: uid)
         ..radioName = radioName
         ..selfIntroduction = selfIntroduction;
-      await fetchUser(uid);
+
       await documentAccessorRepository.update(updateUser);
     }
   }
