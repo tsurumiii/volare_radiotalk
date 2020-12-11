@@ -166,8 +166,8 @@ class PostPage extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                     color: kAppWhite,
                   ),
-                  minLines: 10,
-                  maxLines: 10,
+                  minLines: 5,
+                  maxLines: 5,
                   decoration: InputDecoration(
                     contentPadding:
                         const EdgeInsets.symmetric(vertical: 15, horizontal: 8),

@@ -182,8 +182,8 @@ class ProfilePage extends StatelessWidget {
             child: TextField(
               controller: notifier.selfIntoroController,
               onChanged: notifier.setSelfIntro,
-              minLines: 10,
-              maxLines: 10,
+              minLines: 5,
+              maxLines: 5,
               style: const TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.bold,
