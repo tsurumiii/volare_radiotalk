@@ -94,6 +94,7 @@ class AppPageNotifier extends StateNotifier<AppPageState> with LocatorMixin {
           children: [
             InkWell(
               onTap: () {
+                Navigator.pop(context);
                 Navigator.of(context, rootNavigator: true).push(
                   MaterialPageRoute<void>(
                     builder: (_) => RecordingPage.wrapped(),
