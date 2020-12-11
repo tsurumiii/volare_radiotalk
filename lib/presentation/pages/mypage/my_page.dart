@@ -124,11 +124,11 @@ class _MyPageState extends State<MyPage> {
           ),
           ListTile(
             tileColor: kAppWhite500,
-            onTap: () {
-              userNotifier.fetchPost();
-              Navigator.of(context).push<void>(
+            onTap: () async {
+              await userNotifier.fetchPost();
+              await Navigator.of(context).push<void>(
                 CupertinoPageRoute(
-                  builder: (_) => PostListPage(),
+                  builder: (_) => const PostListPage(),
                 ),
               );
             },

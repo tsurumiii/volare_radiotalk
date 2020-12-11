@@ -16,6 +16,7 @@ class UserNotifier extends StateNotifier<UserState> with LocatorMixin {
   DocumentAccessorRepository get documentAccessorRepository =>
       read<DocumentAccessorRepository>();
   final _storage = Storage();
+  CollectionPagingListener<Post> _collectionPagingListener;
 
   void _configure() {
     _storage
@@ -67,9 +68,20 @@ class UserNotifier extends StateNotifier<UserState> with LocatorMixin {
   }
 
   Future<void> fetchPost() async {
-    final data = await user.User(id: state.user.uid).posts.ref.get();
-    final snapShot = data.docs.toList();
-    final postList = snapShot.map((e) => Post(snapshot: e)).toList();
-    state = state.copyWith(posts: postList);
+    _collectionPagingListener = CollectionPagingListener<Post>(
+      query: user.User(id: state.user.uid).posts.ref,
+      initialLimit: 100,
+      pagingLimit: 100,
+      decode: (snap) => Post(snapshot: snap),
+    )
+      ..fetch()
+      ..data.listen((event) async {
+        print('fetchPosts listen');
+        final data = event.map((e) => e).toList()
+          ..sort((a, b) => b.createdAt.compareTo(a.createdAt));
+
+        print(data.length);
+        state = state.copyWith(posts: data);
+      });
   }
 }

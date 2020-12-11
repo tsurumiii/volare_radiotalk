@@ -6,6 +6,8 @@ import 'package:volare_radiotalk/presentation/pages/app_page_notifier.dart';
 import 'package:volare_radiotalk/presentation/pages/play_radio/play_radio_page_notifier.dart';
 
 class PostListPage extends StatelessWidget {
+  const PostListPage({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
