@@ -23,7 +23,6 @@ class MyPage extends TabWidgetPage {
 class _MyPageState extends State<MyPage> {
   @override
   Widget build(BuildContext context) {
-    final authNotifier = context.watch<AuthNotifier>();
     final user = context.select((UserState state) => state.user);
     final userNotifier = context.watch<UserNotifier>();
     return Scaffold(
@@ -47,11 +46,9 @@ class _MyPageState extends State<MyPage> {
                     height: 50,
                     width: 50,
                     child: CircleAvatar(
-                      child: ClipOval(
-                        child: Image.network(user.userImage == null
-                            ? noImage
-                            : user.userImage.url),
-                      ),
+                      backgroundImage: NetworkImage(user.userImage == null
+                          ? noImage
+                          : user.userImage.url),
                     ),
                   ),
                   const SizedBox(
