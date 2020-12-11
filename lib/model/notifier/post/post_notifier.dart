@@ -79,4 +79,12 @@ class PostNotifier extends StateNotifier<PostState> with LocatorMixin {
       print(e);
     }
   }
+
+  Future<void> delete(String id) async {
+    final uid = currentUser.uid;
+    final ref = user.User(id: uid).posts.ref;
+    final post = Post(id: id, collectionRef: ref);
+    final batch = Batch()..delete(post);
+    await batch.commit();
+  }
 }

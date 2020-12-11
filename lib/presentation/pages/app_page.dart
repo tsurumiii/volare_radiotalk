@@ -5,7 +5,11 @@ import 'package:flutter_state_notifier/flutter_state_notifier.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:volare_radiotalk/common/index.dart';
 import 'package:provider/provider.dart';
+import 'package:volare_radiotalk/model/firestore_model/user/user.dart';
+import 'package:volare_radiotalk/model/notifier/index.dart';
+import 'package:volare_radiotalk/model/notifier/post/post_notifier.dart';
 import 'package:volare_radiotalk/presentation/pages/app_page_notifier.dart';
+import 'package:volare_radiotalk/presentation/widget/index.dart';
 
 import 'play_radio/play_radio_page_notifier.dart';
 
@@ -36,6 +40,7 @@ class AppPage extends StatelessWidget {
 
     final playState = context.select((PlayRadioPageState state) => state);
     final playNotifier = context.watch<PlayRadioPageNotifier>();
+    final currentUser = context.select((UserState state) => state.user);
     return WillPopScope(
       onWillPop: notifier.onWillPop,
       child: Scaffold(
@@ -55,7 +60,7 @@ class AppPage extends StatelessWidget {
             topRight: Radius.circular(15),
           ),
           panelBuilder: (sc) {
-            return _playRadio(context, sc, playState);
+            return _playRadio(context, sc, playState, currentUser);
           },
           body: Scaffold(
             body: Stack(
@@ -127,10 +132,11 @@ class AppPage extends StatelessWidget {
     );
   }
 
-  Widget _playRadio(
-      BuildContext context, ScrollController sc, PlayRadioPageState playState) {
+  Widget _playRadio(BuildContext context, ScrollController sc,
+      PlayRadioPageState playState, User currentUser) {
     final notifier = context.read<AppPageNotifier>();
     final playNotifier = context.read<PlayRadioPageNotifier>();
+    final postNotifier = context.read<PostNotifier>();
     if (playState.post == null) {
       return const SizedBox();
     }
@@ -315,6 +321,24 @@ class AppPage extends StatelessWidget {
             ),
           ],
         ),
+        const SizedBox(
+          height: 100,
+        ),
+        if (playState.post.uid == currentUser.uid)
+          Center(
+            child: Button(
+              text: '削除する',
+              onTap: () {
+                postNotifier.delete(playState.post.id);
+                notifier.panelController.close();
+                playNotifier
+                  ..stopPlayer()
+                  ..setPost(null);
+              },
+              isEnable: true,
+              color: kAppRed400,
+            ),
+          ),
       ],
     );
   }
