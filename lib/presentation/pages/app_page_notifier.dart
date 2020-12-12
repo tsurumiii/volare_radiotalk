@@ -129,37 +129,37 @@ class AppPageNotifier extends StateNotifier<AppPageState> with LocatorMixin {
                 ),
               ),
             ),
-            const SizedBox(
-              width: 50,
-            ),
-            SizedBox(
-              height: 120,
-              width: 120,
-              child: CircleAvatar(
-                backgroundColor: kAppOrange100,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: const [
-                    Icon(
-                      Icons.flash_on_outlined,
-                      size: 20,
-                      color: kAppWhite,
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Text(
-                      'LIVE',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: kAppWhite,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
+            // const SizedBox(
+            //   width: 50,
+            // ),
+            // SizedBox(
+            //   height: 120,
+            //   width: 120,
+            //   child: CircleAvatar(
+            //     backgroundColor: kAppOrange100,
+            //     child: Row(
+            //       mainAxisAlignment: MainAxisAlignment.center,
+            //       crossAxisAlignment: CrossAxisAlignment.center,
+            //       children: const [
+            //         Icon(
+            //           Icons.flash_on_outlined,
+            //           size: 20,
+            //           color: kAppWhite,
+            //         ),
+            //         SizedBox(
+            //           width: 10,
+            //         ),
+            //         Text(
+            //           'LIVE',
+            //           style: TextStyle(
+            //             fontWeight: FontWeight.bold,
+            //             color: kAppWhite,
+            //           ),
+            //         ),
+            //       ],
+            //     ),
+            //   ),
+            // ),
           ],
         ),
       ),
