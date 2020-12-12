@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:volare_radiotalk/app.dart';
 import 'package:volare_radiotalk/common/index.dart';
 import 'package:volare_radiotalk/model/notifier/index.dart';
 import 'package:provider/provider.dart';
@@ -25,11 +26,26 @@ class _MyPageState extends State<MyPage> {
   Widget build(BuildContext context) {
     final user = context.select((UserState state) => state.user);
     final userNotifier = context.watch<UserNotifier>();
+    final authNotifier = context.watch<AuthNotifier>();
     return Scaffold(
       backgroundColor: kAppWhite500,
       appBar: AppBar(
         backgroundColor: kAppWhite500,
         elevation: 0,
+        actions: [
+          IconButton(
+            icon: Icon(Icons.logout),
+            onPressed: () async {
+              await authNotifier.logOut();
+              await Navigator.of(context, rootNavigator: true)
+                  .pushReplacement<MaterialPageRoute, void>(
+                MaterialPageRoute(
+                  builder: (_) => App(),
+                ),
+              );
+            },
+          ),
+        ],
       ),
       body: ListView(
         padding: const EdgeInsets.symmetric(
